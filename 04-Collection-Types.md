@@ -33,7 +33,7 @@ someInts = []
 
 #### 기본 값으로 빈 배열 생성
 
-repeating 매소드와 count 매소드를 이용해 기본 값으로 빈 배열을 생성할 수 있습니다.
+repeating 메소드와 count 메소드를 이용해 기본 값으로 빈 배열을 생성할 수 있습니다.
 
 ```swift
 var threeDoubles = Array(repeating: 0.0, count: 3)
@@ -139,7 +139,7 @@ for item in shoppingList {
 // Bananas
 ```
 
-배열의 값과 인덱스가 필요할 때는 enumerated\(\) 매소드를 사용합니다.
+배열의 값과 인덱스가 필요할 때는 enumerated\(\) 메소드를 사용합니다.
 
 ```swift
 for (index, value) in shoppingList.enumerated() {
@@ -261,7 +261,7 @@ oddDigits.symmetricDifference(singleDigitPrimeNumbers).sorted()
 
 #### Set의 맴버십과 동등 비교
 
-Set의 동등비교와 맴버 여부를 확인하기 위해 각각 == 연산자와 isSuperset\(of:\), isStrictSubset\(of:\), isStrictSuperset\(of:\), isDisjoint\(with:\) 매소드를 사용한다.
+Set의 동등비교와 맴버 여부를 확인하기 위해 각각 == 연산자와 isSuperset\(of:\), isStrictSubset\(of:\), isStrictSuperset\(of:\), isDisjoint\(with:\) 메소드를 사용한다.
 
 ![](.gitbook/assets/56c640e4-4550-4977-87c3-4c242f03d678.png)
 

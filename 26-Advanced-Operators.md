@@ -167,7 +167,7 @@ signedOverflow = signedOverflow &- 1
 
 **연산자 메소드 \(Operator Methods\)**
 
-+,++같은 연산자는 매소드로 수행되고 이 매소드를 오버라이딩 할 수 있습니다. 아래 예제는 2D Vector 구조체를 더하는 + 매소드를 선언한 예입니다.
++,++같은 연산자는 메소드로 수행되고 이 메소드를 오버라이딩 할 수 있습니다. 아래 예제는 2D Vector 구조체를 더하는 + 메소드를 선언한 예입니다.
 
 ```swift
 struct Vector2D {
@@ -188,7 +188,7 @@ let combinedVector = vector + anotherVector
 // combinedVector is a Vector2D instance with values of (5.0, 5.0)
 ```
 
-vector + anotherVector를 수행하면 +매소드가 수행되 두 2차원 좌표의 x, y 값을 각각 더합니다.
+vector + anotherVector를 수행하면 +메소드가 수행되 두 2차원 좌표의 x, y 값을 각각 더합니다.
 
 ![](.gitbook/assets/vectoraddition_2x.png)
 

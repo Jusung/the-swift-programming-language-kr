@@ -231,7 +231,7 @@ func findIndex<T>(of valueToFind: T, in array:[T]) -> Int? {
 }
 ```
 
-위 코드는 에러가 발생합니다. 이유는 `value == valueToFind`의 코드에서 두 값을 비교하게 되는데 두 값을 비교하는 경우에는 즉, `==` 등호 매소드를 사용하기 위해서는 두 값 혹은 객체가 반드시 `Equatable` 프로토콜을 따라야 하기 때문입니다. 이 문제를 해결하기 위해 T는 `Equatable`프로토콜을 따른다고 표시합니다. 타입 플레이스 홀더에 `<T: Equatable>`같이 적어줍니다. 이것으로 T가 `Equatable`프로토콜을 따른 다는 것을 알려줍니다.
+위 코드는 에러가 발생합니다. 이유는 `value == valueToFind`의 코드에서 두 값을 비교하게 되는데 두 값을 비교하는 경우에는 즉, `==` 등호 메소드를 사용하기 위해서는 두 값 혹은 객체가 반드시 `Equatable` 프로토콜을 따라야 하기 때문입니다. 이 문제를 해결하기 위해 T는 `Equatable`프로토콜을 따른다고 표시합니다. 타입 플레이스 홀더에 `<T: Equatable>`같이 적어줍니다. 이것으로 T가 `Equatable`프로토콜을 따른 다는 것을 알려줍니다.
 
 ```swift
 func findIndex<T: Equatable>(of valueToFind: T, in array:[T]) -> Int? {

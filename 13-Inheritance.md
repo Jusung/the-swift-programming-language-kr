@@ -1,6 +1,6 @@
 # 상속 \(Inheritance\)
 
-클래스는 매소드, 프로퍼티와 다른 특징\(characteristics\)을 다른 클래스로 부터 상속할 수 있습니다. 이것이 Swift에서 클래스가 다른 타입과 구분되는 근본적인 요소입니다. 클래스에서는 저장된 프로퍼티와 계산된 프로퍼티와 상관없이 상속받은 프로퍼티에 프로퍼티 옵저버를 설정해서 값 설정에 반응할 수 있습니다.
+클래스는 메소드, 프로퍼티와 다른 특징\(characteristics\)을 다른 클래스로 부터 상속할 수 있습니다. 이것이 Swift에서 클래스가 다른 타입과 구분되는 근본적인 요소입니다. 클래스에서는 저장된 프로퍼티와 계산된 프로퍼티와 상관없이 상속받은 프로퍼티에 프로퍼티 옵저버를 설정해서 값 설정에 반응할 수 있습니다.
 
 ### 기반 클래스 정의 \(Defining a Base Class\)
 
@@ -23,7 +23,7 @@ class Vehicle {
 }
 ```
 
-위 코드는 탈것\(Vehicle\)이라는 기반 클래스를 하나 정의한 것입니다. 이 탈것은 현재속도\(currentSpeed\)를 프로퍼티로 갖고 있고 `description`을 계산된 프로퍼티로 선언했습니다. `makeNoise()`라는 매소드도 갖고 있습니다. 이 클래스를 이용해 탈것 객체를 하나 생성합니다. `let someVehicle = Vehicle()` `description`프로퍼티를 이용해 탈 것의 현재 상태를 확인합니다.
+위 코드는 탈것\(Vehicle\)이라는 기반 클래스를 하나 정의한 것입니다. 이 탈것은 현재속도\(currentSpeed\)를 프로퍼티로 갖고 있고 `description`을 계산된 프로퍼티로 선언했습니다. `makeNoise()`라는 메소드도 갖고 있습니다. 이 클래스를 이용해 탈것 객체를 하나 생성합니다. `let someVehicle = Vehicle()` `description`프로퍼티를 이용해 탈 것의 현재 상태를 확인합니다.
 
 ```swift
 print("Vehicle: \(someVehicle.description)")
@@ -86,15 +86,15 @@ print("Tandem: \(tandem.description)")
 
 ### 오버라이딩 \(Overriding\)
 
-서브클래스에서는 부모클래스에서 상속받은 것을 재정의 할 수 있습니다. 이것을 `overriding` 이라 부르는데, 오버라이딩은 인스턴스 매소드, 타입 매소드, 인스턴스 프로퍼티, 타입 프로퍼티, 서브스크립트 모두에 대해 가능합니다. 오버라이드를 위해서는 다른 선언 앞에 `override`키워드를 붙여줍니다. Swift에서는 이 `override`키워드를 보면 부모에 그 정의가 있는지 확인합니다.
+서브클래스에서는 부모클래스에서 상속받은 것을 재정의 할 수 있습니다. 이것을 `overriding` 이라 부르는데, 오버라이딩은 인스턴스 메소드, 타입 메소드, 인스턴스 프로퍼티, 타입 프로퍼티, 서브스크립트 모두에 대해 가능합니다. 오버라이드를 위해서는 다른 선언 앞에 `override`키워드를 붙여줍니다. Swift에서는 이 `override`키워드를 보면 부모에 그 정의가 있는지 확인합니다.
 
-### 부모클래스의 매소드, 프로퍼티, 서브스크립트의 접근 \(Accessing Superclass Methods, Properties, and Subscripts\)
+### 부모클래스의 메소드, 프로퍼티, 서브스크립트의 접근 \(Accessing Superclass Methods, Properties, and Subscripts\)
 
-`super`키워드와 점문법 혹은 인덱스 구문으로 부모 클래스의 매소드, 프로퍼티, 서브스크립트에 접근할 수 있습니다. `super.someMethod`, `super.someProperty`, `super[someIndex]`
+`super`키워드와 점문법 혹은 인덱스 구문으로 부모 클래스의 메소드, 프로퍼티, 서브스크립트에 접근할 수 있습니다. `super.someMethod`, `super.someProperty`, `super[someIndex]`
 
-#### 매소드 오버라이드 \(Overriding Methods\)
+#### 메소드 오버라이드 \(Overriding Methods\)
 
-상속받은 매소드를 오버라이드 하기 위해서는 매소드 선언 앞에 `override`키워드를 붙이고 내용을 적어주면 됩니다.
+상속받은 메소드를 오버라이드 하기 위해서는 메소드 선언 앞에 `override`키워드를 붙이고 내용을 적어주면 됩니다.
 
 ```swift
 class Train: Vehicle {
@@ -168,5 +168,5 @@ print("AutomaticCar: \(automatic.description)")
 
 ### 오버라이드 방지 \(Preventing Overrides\)
 
-서브클래스에서 특정 매소드, 프로퍼티, 서브스크립트가 오버라이드 되는 것을 방지하려면 `final`키워드를 사용합니다. 다시말해, `final`로 선언되면 `override`되는 것을 막을 수 있습니다. \(final func, final class func, final subscript\) 만일 `final`로 선언된 매소드, 프로퍼티, 서브스크립트를 오버라이드 하려고 하면 컴파일 시간\(compile-time\)에 에러가 발생합니다. 클래스 전체를 `final`로 선언해서 클래스 안의 모든 매소드, 프로퍼티 등이 `override`가 되는 것을 막을 수 있습니다. \(final class\)
+서브클래스에서 특정 메소드, 프로퍼티, 서브스크립트가 오버라이드 되는 것을 방지하려면 `final`키워드를 사용합니다. 다시말해, `final`로 선언되면 `override`되는 것을 막을 수 있습니다. \(final func, final class func, final subscript\) 만일 `final`로 선언된 메소드, 프로퍼티, 서브스크립트를 오버라이드 하려고 하면 컴파일 시간\(compile-time\)에 에러가 발생합니다. 클래스 전체를 `final`로 선언해서 클래스 안의 모든 메소드, 프로퍼티 등이 `override`가 되는 것을 막을 수 있습니다. \(final class\)
 

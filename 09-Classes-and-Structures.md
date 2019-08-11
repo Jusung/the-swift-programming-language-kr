@@ -7,13 +7,13 @@
 Swift에서 클래스와 구조체는 많은 공통점이 있습니다. 클래스와 구조체 둘다 다음과 같은 기능이 가능합니다.
 
 * 값을 저장하기 위한 프로퍼티 정의
-* 기능을 제공하기 위한 매소드 정의
+* 기능을 제공하기 위한 메소드 정의
 * `subscript` 문법을 이용해 특정 값을 접근할 수 있는 `subscript` 정의
 * 초기 상태를 설정할 수 있는 `initializer` 정의
 * 기본 구현에서 기능 확장
 * 특정한 종류의 표준 기능을 제공하기 위한 프로토콜 순응\(conform\)
 
-더 많은 정보는 프로퍼티, 매소드, 서브스크립트, 초기화, 확장 그리고 프로토콜을 참조
+더 많은 정보는 프로퍼티, 메소드, 서브스크립트, 초기화, 확장 그리고 프로토콜을 참조
 
 구조체로는 가능하지 않고 클래스만 가능한 기능은 아래와 같습니다.
 
@@ -41,7 +41,7 @@ struct SomeStructure {
 ```
 
 > NOTE   
-> 새로운 클래스나 구조체를 선언할 때마다 Swift 에서 완전 새로운 타입을 선언하는 것입니다. 그래서 이름을 다른 표준 Swift 타입\(String, Int, Bool\)과 같이 UpperCamelCase 이름\(SomeClass, SomeStructure 등\)으로 선언합니다. 반대로 프로퍼티나 매소드는 lowerCamelCase\(frameRate, incrementCount 등\)으로 선언합니다.
+> 새로운 클래스나 구조체를 선언할 때마다 Swift 에서 완전 새로운 타입을 선언하는 것입니다. 그래서 이름을 다른 표준 Swift 타입\(String, Int, Bool\)과 같이 UpperCamelCase 이름\(SomeClass, SomeStructure 등\)으로 선언합니다. 반대로 프로퍼티나 메소드는 lowerCamelCase\(frameRate, incrementCount 등\)으로 선언합니다.
 
 아래는 각각 구조체 선언과 클래스 선언의 예입니다.
 
@@ -213,7 +213,7 @@ C, C++ 혹은 Objective-C를 사용해 보신 분이라면 이 참조라는 것�
 * 구조의 주 목적이 관계된 간단한 값을 캡슐화\(encapsulate\) 하기 위한 것인 경우
 * 구조의 인스턴스가 참조되기 보다 복사되기를 기대하는 경우
 * 구조에 의해 저장된 어떠한 프로퍼티가 참조되기 보다 복사되기를 기대하는 경우
-* 구조가 프로퍼티나 매소드 등을 상속할 필요가 없는 경우
+* 구조가 프로퍼티나 메소드 등을 상속할 필요가 없는 경우
 
 실 “예”를 들면 다음과 같습니다. `double`형을 갖는 `width` 와 `height`를 캡슐화해 특정 지형의 크기로 사용하는 경우 `Int`형을 갖는 `start`와 `length`를 캡슐화해 특정 값의 범위를 나타내는 경우 `Double`형으로 구성된 x, y, z를 캡슐화 해 3D 좌표 시스템의 point로 사용하는 경우
 
@@ -221,7 +221,7 @@ C, C++ 혹은 Objective-C를 사용해 보신 분이라면 이 참조라는 것�
 
 ### String, Array, Dictionary의 할당과 복사 동작 \(Assignment and Copy Behavior for Strings, Arrays, and Dictionaries\)
 
-Swift에서는 `String`, `Array`, `Dictionary` 같은 기본 데이터 타입이 구조체로 구현 돼 있습니다. 그렇다는 의미는 이 값을 다른 상수나 변수에 할당하거나 함수나 매소드에 인자로 넘길 때 이 값이 복사 된다는 것입니다. 반면 `Foundation`의 `NSString`, `NSArray`, `NSDictionary`는 클래스로 구현 돼 있습니다. 그래서 이 데이터들은 항상 할당 되거나 전달될 때 복사 되지 않고 참조가 사용됩니다.
+Swift에서는 `String`, `Array`, `Dictionary` 같은 기본 데이터 타입이 구조체로 구현 돼 있습니다. 그렇다는 의미는 이 값을 다른 상수나 변수에 할당하거나 함수나 메소드에 인자로 넘길 때 이 값이 복사 된다는 것입니다. 반면 `Foundation`의 `NSString`, `NSArray`, `NSDictionary`는 클래스로 구현 돼 있습니다. 그래서 이 데이터들은 항상 할당 되거나 전달될 때 복사 되지 않고 참조가 사용됩니다.
 
 > NOTE   
 > 위에서 `String`, `Array`, `Dictionary` 는 할당되거나 전달될 때 복사된다고 설명했습니다. 하지만 실제로 Swift에서는 최적의 성능을 위해 실제 필요할 때만 데이터가 복사됩니다.

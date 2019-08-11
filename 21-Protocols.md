@@ -83,9 +83,9 @@ var ncc1701 = Starship(name: "Enterprise", prefix: "USS")
 // ncc1701.fullName is "USS Enterprise"
 ```
 
-### 매소드 요구사항 \(Method Requirements\)
+### 메소드 요구사항 \(Method Requirements\)
 
-프로토콜에서는 필수 인스턴스 매소드와 타입 매소드를 명시할 수 있습니다. 하지만 매소드 파라미터의 기본 값은 프로토콜 안에서 사용할 수 없습니다.
+프로토콜에서는 필수 인스턴스 메소드와 타입 메소드를 명시할 수 있습니다. 하지만 메소드 파라미터의 기본 값은 프로토콜 안에서 사용할 수 없습니다.
 
 ```swift
 protocol SomeProtocol {
@@ -93,7 +93,7 @@ protocol SomeProtocol {
 }
 ```
 
-필수 매소드 지정시 함수명과 반환값을 지정할 수 있고, 구현에 사용하는 괄호는 적지 않아도 됩니다.
+필수 메소드 지정시 함수명과 반환값을 지정할 수 있고, 구현에 사용하는 괄호는 적지 않아도 됩니다.
 
 ```swift
 protocol RandomNumberGenerator {
@@ -101,7 +101,7 @@ protocol RandomNumberGenerator {
 }
 ```
 
-다음 코드는 따르는 프로토콜의 필수 매소드 `random()`을 구현한 클래스입니다.
+다음 코드는 따르는 프로토콜의 필수 메소드 `random()`을 구현한 클래스입니다.
 
 ```swift
 class LinearCongruentialGenerator: RandomNumberGenerator {
@@ -121,14 +121,14 @@ print("And another one: \(generator.random())")
 // Prints "And another one: 0.729023776863283"
 ```
 
-### 변경 가능한 매소드 요구사항 \(Mutating Method Requirements\)
+### 변경 가능한 메소드 요구사항 \(Mutating Method Requirements\)
 
 mutating 키워드를 사용해 인스턴스에서 변경 가능하다는 것을 표시할 수 있습니다. 이 mutating 키워드는 값타입 형에만 사용합니다.
 
 > NOTE   
-> 프로토콜에 mutating을 명시한 경우 이 프로토콜을 따르는 클래스 형을 구현할 때는 매소드에 mutating을 명시하지 않아도 됩니다. mutating은 값타입 형에만 사용합니다.
+> 프로토콜에 mutating을 명시한 경우 이 프로토콜을 따르는 클래스 형을 구현할 때는 메소드에 mutating을 명시하지 않아도 됩니다. mutating은 값타입 형에만 사용합니다.
 
-다음 코드는 mutating 매소드를 선언한 프로토콜의 예입니다.
+다음 코드는 mutating 메소드를 선언한 프로토콜의 예입니다.
 
 ```swift
 protocol Togglable {
@@ -136,7 +136,7 @@ protocol Togglable {
 }
 ```
 
-이 프로토콜을 따르는 값타입 형에서 `toggle()`매소드를 변경해 사용할 수 있습니다.
+이 프로토콜을 따르는 값타입 형에서 `toggle()`메소드를 변경해 사용할 수 있습니다.
 
 ```swift
 enum OnOffSwitch: Togglable {
@@ -209,7 +209,7 @@ class SomeSubClass: SomeSuperClass, SomeProtocol {
 
 프로토콜도 하나의 타입으로 사용됩니다. 그렇기 때문에 다음과 같이 타입 사용이 허용되는 모든 곳에 프로토콜을 사용할 수 있습니다.
 
-* 함수, 매소드, 이니셜라이저의 파라미터 타입 혹은 리턴 타입
+* 함수, 메소드, 이니셜라이저의 파라미터 타입 혹은 리턴 타입
 * 상수, 변수, 프로퍼티의 타입
 * 컨테이너인 배열, 사전 등의 아이템 타입
 
@@ -381,7 +381,7 @@ print(game.textualDescription)
 
 #### 조건적으로 프로토콜을 따르기 \(Conditionally Conforming to a Protocol\)
 
-특정 조건을 만족시킬때만 프로토콜을 따르도록 제한할 수 있습니다. 이 선언은 where 절을 사용해 정의합니다. 아래 예제는 TextRepresentable을 따르는 Array중에 Array의 각 원소가 TextRepresentable인 경우에만 따르는 프로토콜을 정의합니다. textualDescription은 Array의 각 원소가 TextRepresentable를 따르게 때문에 `textualDescription` 프로퍼티를 사용할 수 있습니다. textualDescription는 Array의 모든 아이템을 순회하고 각각의 `textualDescription`를 결합해 반환하는 매소드입니다.
+특정 조건을 만족시킬때만 프로토콜을 따르도록 제한할 수 있습니다. 이 선언은 where 절을 사용해 정의합니다. 아래 예제는 TextRepresentable을 따르는 Array중에 Array의 각 원소가 TextRepresentable인 경우에만 따르는 프로토콜을 정의합니다. textualDescription은 Array의 각 원소가 TextRepresentable를 따르게 때문에 `textualDescription` 프로퍼티를 사용할 수 있습니다. textualDescription는 Array의 모든 아이템을 순회하고 각각의 `textualDescription`를 결합해 반환하는 메소드입니다.
 
 ```swift
 extension Array: TextRepresentable where Element: TextRepresentable {
@@ -523,7 +523,7 @@ wishHappyBirthday(to: birthdayPerson)
 // Prints "Happy birthday, Malcolm, you're 21!"
 ```
 
-wishHappyBirthday 매소드의 celebrator파라미터는 Named 프로토콜과 Aged 프로토콜을 동시에 따르는 타입으로 선언하기 위해 Named & Aged로 표시했습니다. 아래 예제는 Location 프로토콜과 위의Named 프로토콜을 따르는 City 클래스를 구현한 예입니다.
+wishHappyBirthday 메소드의 celebrator파라미터는 Named 프로토콜과 Aged 프로토콜을 동시에 따르는 타입으로 선언하기 위해 Named & Aged로 표시했습니다. 아래 예제는 Location 프로토콜과 위의Named 프로토콜을 따르는 City 클래스를 구현한 예입니다.
 
 ```swift
 class Location {
@@ -745,7 +745,7 @@ extension PrettyTextRepresentable  {
 
 #### 프로토콜 익스텐션에 제약 추가 \(Adding Constraints to Protocol Extensions\)
 
-프로토콜 익스텐션이 특정 조건에서만 적용되도록 선언할 수 있습니다. 이 선언에는 where 절을 사용합니다. 다음은 Collection 엘리먼트가 Equatable인 경우에만 적용되는 `allEqual()`매소드를 구현한 예입니다.
+프로토콜 익스텐션이 특정 조건에서만 적용되도록 선언할 수 있습니다. 이 선언에는 where 절을 사용합니다. 다음은 Collection 엘리먼트가 Equatable인 경우에만 적용되는 `allEqual()`메소드를 구현한 예입니다.
 
 ```swift
 extension Collection where Element: Equatable {

@@ -1,6 +1,6 @@
 # 문자열과 문자 \(Strings and Characters\)
 
-Swift의 String은 Foundation 프레임워크의 NSString이 bridge된 타입이기 때문에 NSString의 매소드를 String에서 캐스팅 없이 사용 가능합니다.
+Swift의 String은 Foundation 프레임워크의 NSString이 bridge된 타입이기 때문에 NSString의 메소드를 String에서 캐스팅 없이 사용 가능합니다.
 
 ### 문자열 리터럴
 
@@ -105,7 +105,7 @@ constantString += " and another Highlander"
 
 ### 값 타입 문자열
 
-Swift의 String은 값 타입\(value type\)입니다. 그래서 만약 String이 다른 함수 혹은 매소드로 부터 생성되면 String값이 할당 될때 전의 String의 레퍼런스를 할당하는 것이 아니라 값을 복사해서 생성합니다. 반대로 이야기 하면 다른 매소드에서 할당 받은 문자열은 그 문자열을 수정해도 원본 문자열이 변하지 않기 때문에 편하게 사용하셔도 됩니다.
+Swift의 String은 값 타입\(value type\)입니다. 그래서 만약 String이 다른 함수 혹은 메소드로 부터 생성되면 String값이 할당 될때 전의 String의 레퍼런스를 할당하는 것이 아니라 값을 복사해서 생성합니다. 반대로 이야기 하면 다른 메소드에서 할당 받은 문자열은 그 문자열을 수정해도 원본 문자열이 변하지 않기 때문에 편하게 사용하셔도 됩니다.
 
 ### 문자
 
@@ -128,7 +128,7 @@ for character in "Dog!🐶" {
 let exclamationMark: Character = "!"
 ```
 
-문자 배열을 이용해 문자열의 초기화 매소드에 인자로 넣어 문자열을 생성할 수 있습니다.
+문자 배열을 이용해 문자열의 초기화 메소드에 인자로 넣어 문자열을 생성할 수 있습니다.
 
 ```swift
 let catCharacters: [Character] = ["C", "a", "t", "!", "🐱"]
@@ -222,14 +222,14 @@ let message = "\(multiplier) times 2.5 is \(Double(multiplier) * 2.5)"
 
   **문자열의 접근과 수정**
 
-  문자열의 수정과 접근은 문자열 매소드 혹은 프로퍼티를 이용하거나 서브스크립트\(subscript\) 문법을 이용해 할 수 있습니다.  
+  문자열의 수정과 접근은 문자열 메소드 혹은 프로퍼티를 이용하거나 서브스크립트\(subscript\) 문법을 이용해 할 수 있습니다.  
 
 
   **문자열 인덱스**
 
-  아래와 같이 startIndex, endIndex, index\(before:\), index\(after:\), index\(\_:offsetBy:\) 매소드 등을 이용해 문자열에서 특정 문자에 접근할 수 있습니다.
+  아래와 같이 startIndex, endIndex, index\(before:\), index\(after:\), index\(\_:offsetBy:\) 메소드 등을 이용해 문자열에서 특정 문자에 접근할 수 있습니다.
 
-> 위 매소드들은 Collection 프로토콜을 따르는 Array, Dictionary, Set 등에서도 동일하게 사용할 수 있습니다.
+> 위 메소드들은 Collection 프로토콜을 따르는 Array, Dictionary, Set 등에서도 동일하게 사용할 수 있습니다.
 
 ```swift
 let greeting = "Guten Tag!"
@@ -261,9 +261,9 @@ for index in greeting.indices {
 
 #### 문자의 삽입과 삭제
 
-문자의 삽입과 삭제에는 insert\(_:at:\), insert\(contentsOf:at:\), remove\(at:\), removeSubrange\(_:\) 매소드를 사용할 수 있습니다.
+문자의 삽입과 삭제에는 insert\(_:at:\), insert\(contentsOf:at:\), remove\(at:\), removeSubrange\(_:\) 메소드를 사용할 수 있습니다.
 
-> 위 매소드들은 RangeReplaceableCollection 프로토콜을 따르는 Array, Dictionary, Set 등에서도 동일하게 사용할 수 있습니다.
+> 위 메소드들은 RangeReplaceableCollection 프로토콜을 따르는 Array, Dictionary, Set 등에서도 동일하게 사용할 수 있습니다.
 
 ```swift
 var welcome = "hello"
@@ -285,7 +285,7 @@ welcome.removeSubrange(range)
 
 ### 부분 문자열
 
-문자열에서 부분적으로 문자를 얻기 위해 prefix \(\_:\)와 같은 서브스크립트 매소드를 이용할 수 있는데, 그렇게 얻은 부분 문자열은 **문자열\(String\) 인스턴스가 아니라 부분 문자열\(SubString\) 인스턴스** 입니다. 만약 부분 문자열을 단기간에 사용하는게 아니라 오랜기간 사용한다면 문자열 인스턴스로 바꿔서 사용하는게 좋습니다.
+문자열에서 부분적으로 문자를 얻기 위해 prefix \(\_:\)와 같은 서브스크립트 메소드를 이용할 수 있는데, 그렇게 얻은 부분 문자열은 **문자열\(String\) 인스턴스가 아니라 부분 문자열\(SubString\) 인스턴스** 입니다. 만약 부분 문자열을 단기간에 사용하는게 아니라 오랜기간 사용한다면 문자열 인스턴스로 바꿔서 사용하는게 좋습니다.
 
 ```swift
 let greeting = "Hello World!"
@@ -352,7 +352,7 @@ if eAcuteQuestion == combinedEAcuteQuestion {
 
 #### 접두사와 접미사 비교
 
-접두사와 접미사의 비교를 위해 hasPrefix\(_:\), hasSuffix\(_:\) 매소드를 사용할 수 있습니다.
+접두사와 접미사의 비교를 위해 hasPrefix\(_:\), hasSuffix\(_:\) 메소드를 사용할 수 있습니다.
 
 ```swift
 let romeoAndJuliet = [

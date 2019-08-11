@@ -360,7 +360,7 @@ paragraph = nil
 클로저에서 강한 참조 순환 문제의 해결하기 위해 캡쳐 참조에 강한 참조 대신 약한 참조\(weak\) 혹은 미소유\(unowend\) 참조를 지정할 수 있습니다. 약한 참조인지 미소유 참조를 사용할지는 코드에서 상호 관계에 달려있습니다.
 
 > NOTE  
->  Swift에서는 클로저에서 특정 self의 매소드를 사용할 때 캡쳐를 실수하는 것을 막기위해 someProperty 혹은 someMethod와 대신 self.someProperty 혹은 self.someMethod와 같이 self를 명시하는 것을 필요로 합니다.
+>  Swift에서는 클로저에서 특정 self의 메소드를 사용할 때 캡쳐를 실수하는 것을 막기위해 someProperty 혹은 someMethod와 대신 self.someProperty 혹은 self.someMethod와 같이 self를 명시하는 것을 필요로 합니다.
 
 #### 캡쳐리스트 정의 \(Defining a Capture List\)
 

@@ -103,7 +103,7 @@ balance(&playerOneScore, &playerOneScore)
 
 ### Conflicting Access to self in Methods
 
-매소드 안에서 self에 접근할때 충돌이 발생할 수도 있습니다. 예를 들기 위해 아래와 같이 Player구조체를 선언합니다.
+메소드 안에서 self에 접근할때 충돌이 발생할 수도 있습니다. 예를 들기 위해 아래와 같이 Player구조체를 선언합니다.
 
 ```swift
 struct Player {
