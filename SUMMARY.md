@@ -1,7 +1,7 @@
 # Table of contents
 
 * [The Swift Language Guide \(한국어\)](README.md)
-* [기본 연산자 \(Basic Operators\)](basic-operators.md)
+* [기본 연산자 \(Basic Operators\)](02 Basic Operators.md)
 * [문자열과 문자 \(Strings and Characters\)](strings-and-characters.md)
 * [콜렉션 타입 \(Collection Types\)](untitled-1.md)
 * [제어문 \(Control Flow\)](untitled-2.md)
