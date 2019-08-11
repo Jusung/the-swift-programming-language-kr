@@ -2,7 +2,7 @@
 
 프로토콜은 특정 기능 수행에 필수적인 요수를 청의한 청사진\(blueprint\)입니다. 프로토콜을 만족시키는 타입을 프로토콜을 따른다\(conform\)고 말합니다. 프로토콜에 필수 구현을 추가하거나 추가적인 기능을 더하기 위해 프로토콜을 확장\(extend\)하는 것이 가능합니다.
 
-### 프토토콜 문법 \(Protocol Syntax\)
+## 프토토콜 문법 \(Protocol Syntax\)
 
 프로토콜의 정의는 클래스, 구조체, 열거형 등과 유사합니다.
 
@@ -28,7 +28,7 @@ class SomeClass: SomeSuperclass, FirstProtocol, AnotherProtocol {
 }
 ```
 
-### 프로퍼티 요구사항 \(Property Requirements\)
+## 프로퍼티 요구사항 \(Property Requirements\)
 
 프로토콜에서는 프로퍼티가 저장된 프로퍼티인지 계산된 프로퍼티인지 명시하지 않습니다. 하지만 프로퍼티의 이름과 타입 그리고 gettable, settable한지는 명시합니다. 필수 프로퍼티는 항상 var로 선언해야 합니다.
 
@@ -83,7 +83,7 @@ var ncc1701 = Starship(name: "Enterprise", prefix: "USS")
 // ncc1701.fullName is "USS Enterprise"
 ```
 
-### 메소드 요구사항 \(Method Requirements\)
+## 메소드 요구사항 \(Method Requirements\)
 
 프로토콜에서는 필수 인스턴스 메소드와 타입 메소드를 명시할 수 있습니다. 하지만 메소드 파라미터의 기본 값은 프로토콜 안에서 사용할 수 없습니다.
 
@@ -121,11 +121,11 @@ print("And another one: \(generator.random())")
 // Prints "And another one: 0.729023776863283"
 ```
 
-### 변경 가능한 메소드 요구사항 \(Mutating Method Requirements\)
+## 변경 가능한 메소드 요구사항 \(Mutating Method Requirements\)
 
 mutating 키워드를 사용해 인스턴스에서 변경 가능하다는 것을 표시할 수 있습니다. 이 mutating 키워드는 값타입 형에만 사용합니다.
 
-> NOTE   
+> NOTE  
 > 프로토콜에 mutating을 명시한 경우 이 프로토콜을 따르는 클래스 형을 구현할 때는 메소드에 mutating을 명시하지 않아도 됩니다. mutating은 값타입 형에만 사용합니다.
 
 다음 코드는 mutating 메소드를 선언한 프로토콜의 예입니다.
@@ -155,7 +155,7 @@ lightSwitch.toggle()
 // lightSwitch is now equal to .on
 ```
 
-### 초기자 요구사항 \(Initializer Requirements\)
+## 초기자 요구사항 \(Initializer Requirements\)
 
 프로토콜에서 필수로 구현해야하는 이니셜라이저를 지정할 수 있습니다.
 
@@ -165,7 +165,7 @@ protocol SomeProtocol {
 }
 ```
 
-#### 클래스에서 프로토콜 필수 이니셜라이저의 구현 \(Class Implementation of Protocol Initializer Requirements\)
+### 클래스에서 프로토콜 필수 이니셜라이저의 구현 \(Class Implementation of Protocol Initializer Requirements\)
 
 프로토콜에서 특정 이니셜라이저가 필요하다고 명시했기 때문에 구현에서 해당 이니셜라이저에 required 키워드를 붙여줘야 합니다.
 
@@ -177,7 +177,7 @@ class SomeClass: SomeProtocol {
 }
 ```
 
-> NOTE   
+> NOTE  
 > 클래스 타입에서 final로 선언된 것에는 required를 표시하지 않도 됩니다. final로 선언되면 서브클래싱 되지 않기 때문입니다.
 
 특정 프로토콜의 필수 이니셜라이저를 구현하고, 수퍼클래스의 이니셜라이저를 서브클래싱하는 경우 이니셜라이저 앞에 required 키워드와 override 키워드를 적어줍니다.
@@ -201,11 +201,11 @@ class SomeSubClass: SomeSuperClass, SomeProtocol {
 }
 ```
 
-#### 실패가능한 초기자 요구사항 \(Failable Initializer Requirements\)
+### 실패가능한 초기자 요구사항 \(Failable Initializer Requirements\)
 
 프로토콜에서 실패가능한 이니셜라이저를 선언할 수 있습니다.
 
-### 타입으로써의 프로토콜 \(Protocols as Types\)
+## 타입으로써의 프로토콜 \(Protocols as Types\)
 
 프로토콜도 하나의 타입으로 사용됩니다. 그렇기 때문에 다음과 같이 타입 사용이 허용되는 모든 곳에 프로토콜을 사용할 수 있습니다.
 
@@ -213,7 +213,7 @@ class SomeSubClass: SomeSuperClass, SomeProtocol {
 * 상수, 변수, 프로퍼티의 타입
 * 컨테이너인 배열, 사전 등의 아이템 타입
 
-> NOTE   
+> NOTE  
 > 프로토콜은 타입이기 때문에 위 예제의 FullyNamed, RandomNumberGenerator와 같이 첫 글자를 대문자로 적어줍니다.
 
 다음은 프로토콜을 타입으로 사용한 예입니다.
@@ -248,7 +248,7 @@ for _ in 1...5 {
 // Random dice roll is 4
 ```
 
-### 위임 \(Delegation\)
+## 위임 \(Delegation\)
 
 위임은 클래스 혹은 구조체 인스턴스에 특정 행위에 대한 책임을 넘길 수 있게 해주는 디자인 패턴 중 하나입니다.
 
@@ -337,7 +337,7 @@ game.play()
 // The game lasted for 4 turns
 ```
 
-### 익스텐션을 이용해 프로토콜 따르게 하기 \(Adding Protocols Conformance with an Extension\)
+## 익스텐션을 이용해 프로토콜 따르게 하기 \(Adding Protocols Conformance with an Extension\)
 
 이미 존재하는 타입에 새 프로토콜을 따르게 하기 위해 익스텐션을 사용할 수 있습니다. 원래 값에 접근 권한이 없어도 익스텐션을 사용해 기능을 확장할 수 있습니다.
 
@@ -379,7 +379,7 @@ print(game.textualDescription)
 // Prints "A game of Snakes and Ladders with 25 squares"
 ```
 
-#### 조건적으로 프로토콜을 따르기 \(Conditionally Conforming to a Protocol\)
+### 조건적으로 프로토콜을 따르기 \(Conditionally Conforming to a Protocol\)
 
 특정 조건을 만족시킬때만 프로토콜을 따르도록 제한할 수 있습니다. 이 선언은 where 절을 사용해 정의합니다. 아래 예제는 TextRepresentable을 따르는 Array중에 Array의 각 원소가 TextRepresentable인 경우에만 따르는 프로토콜을 정의합니다. textualDescription은 Array의 각 원소가 TextRepresentable를 따르게 때문에 `textualDescription` 프로퍼티를 사용할 수 있습니다. textualDescription는 Array의 모든 아이템을 순회하고 각각의 `textualDescription`를 결합해 반환하는 메소드입니다.
 
@@ -395,7 +395,7 @@ print(myDice.textualDescription)
 // Prints "[A 6-sided dice, A 12-sided dice]"
 ```
 
-#### 익스텐션을 이용해 프로토콜 채용 선언하기 \(Declaring Protocol Adoption with an Extension\)
+### 익스텐션을 이용해 프로토콜 채용 선언하기 \(Declaring Protocol Adoption with an Extension\)
 
 만약 어떤 프로토콜을 충족에 필요한 모든 조건을 만족하지만 아직 그 프로토콜을 따른다는 선언을 하지 않았다면 그 선언을 빈 익스텐션으로 선언할 수 있습니다. 아래 코드는 프로토콜을 따른 다는 선언은 익스텐션에 하고 실제 프로토콜을 따르기 위한 구현은 구조체 원본에 구현한 예 입니다.
 
@@ -418,10 +418,10 @@ print(somethingTextRepresentable.textualDescription)
 // Prints "A hamster named Simon"
 ```
 
-> NOTE   
+> NOTE  
 > 프로토콜의 요구사항을 기술하는 것만으로 프로토콜 사용의 조건을 충족시킬 수 없습니다. 반드시 어떤 프로토콜을 따르는지에 대해 기술해야 합니다.
 
-### 프로토콜 타입 콜렉션 \(Collections of Protocol Types\)
+## 프로토콜 타입 콜렉션 \(Collections of Protocol Types\)
 
 프로토콜을 Array, Dictionary등 Collection 타입에 넣기위한 타입으로 사용할 수 있습니다. 아래는 TextRepresentable 프로토콜을 따르는 객체 Array에 대한 선언입니다.
 
@@ -440,7 +440,7 @@ for thing in things {
 // A hamster named Simon
 ```
 
-### 프로토콜 상속 \(Protocol Inheritance\)
+## 프로토콜 상속 \(Protocol Inheritance\)
 
 클래스 상속같이 프로토콜도 상속할 수 있습니다. 여러 프로토콜을 상속받는 경우 콤마\(,\)로 구분합니다.
 
@@ -487,7 +487,7 @@ print(game.prettyTextualDescription)
 // ○ ○ ▲ ○ ○ ▲ ○ ○ ▲ ▲ ○ ○ ○ ▼ ○ ○ ○ ○ ▼ ○ ○ ▼ ○ ▼ ○
 ```
 
-### 클래스 전용 프로토콜 \(Class-Only Protocols\)
+## 클래스 전용 프로토콜 \(Class-Only Protocols\)
 
 구조체, 열거형에서 사용하지 않고 클래스 타입에만 사용가능한 프로토콜을 선언하기 위해서는 프로토콜에 AnyObject를 추가합니다.
 
@@ -497,10 +497,10 @@ protocol SomeClassOnlyProtocol: AnyObject, SomeInheritedProtocol {
 }
 ```
 
-> NOTE   
+> NOTE  
 > 참조 구문만 필요한 프로토콜을 정의하기 위해 클래스 전용 프로토콜을 사용합니다.
 
-### 프로토콜 합성 \(Protocol Composition\)
+## 프로토콜 합성 \(Protocol Composition\)
 
 동시에 여러 프로토콜을 따르는 타입을 선언할 수 있습니다. 아래 Person은 Named와 Aged 프로토콜을 동시에 따르는 구조체입니다.
 
@@ -550,7 +550,7 @@ beginConcert(in: seattle)
 // Prints "Hello, Seattle!"
 ```
 
-### 프로토콜 순응 확인 \(Checking for Protocol Conformance\)
+## 프로토콜 순응 확인 \(Checking for Protocol Conformance\)
 
 어떤 타입이 특정 프로토콜을 따르는지 다음과 같은 방법으로 확인 할 수 있습니다.
 
@@ -617,7 +617,7 @@ for object in objects {
 
 결과로 처음 두 인스턴스는 HasArea를 따르기 때문에 area값이 반환되고 마지막 인스턴스는 HasArea를 따르지 않기 때문에 else 절이 실행됩니다.
 
-### 선택적 프로토콜 요구조건 \(Optional Protocol Requirements\)
+## 선택적 프로토콜 요구조건 \(Optional Protocol Requirements\)
 
 프로토콜을 선언하면서 필수 구현이 아닌 선택적 구현 조건을 정의할 수 있습니다. 이 프로토콜의 정의를 위해서 @objc키워드를 프로토콜 앞에 붙이고, 개별 함수 혹은 프로퍼티에는 @objc와 optional 키워드를 붙입니다. @objc 프로토콜은 클래스 타입에서만 채용될 수 있고 구조체나 열거형에서는 사용할 수 없습니다. 다음은 두가지 선택적 구현을 할 수 있는 CounterDataSource 프로토콜의 예 입니다.
 
@@ -628,7 +628,7 @@ for object in objects {
 }
 ```
 
-> NOTE   
+> NOTE  
 > 엄격하게 말해 CounterDataSource를 따르면서 구현은 하나도 하지 않는 클래스를 선언할 수는 있습니다. 기술적으로는 가능하지만 이렇게 구현하는 것은 좋은 방법이 아닙니다. 만약 하나도 구현하지 않는다면 필요하지 않다는 것 이므로 굳이 CounterDataSource 프로토콜을 따르도록 선언할 필요가 없습니다.
 
 아래 코드는 CounterDataSource 를 따르는 dataSource를 선언한 예입니다.
@@ -702,7 +702,7 @@ for _ in 1...5 {
 // 0
 ```
 
-### 프로토콜 익스텐션 \(Protocol Extensions\)
+## 프로토콜 익스텐션 \(Protocol Extensions\)
 
 익스텐션을 이용해 프로토콜을 확장할 수 있습니다. 아래 코드는 `random()`을 따르는 RandomNumberGenerator에 `randomBool()`을 따르도록 추가한 예입니다.
 
@@ -726,11 +726,11 @@ print("And here's a random Boolean: \(generator.randomBool())")
 
 익스텐션을 이용해 구현을 추가할 수는 있어도 다른 프로토콜로 확장/상속할 수는 없습니다. 만약 그렇게 하고자 한다면 익스텐션이 아닌 프로토콜 자체에 구현해야 합니다.
 
-#### 기본 구현 제공 \(Providing Default Implementations\)
+### 기본 구현 제공 \(Providing Default Implementations\)
 
 익스텐션을 기본 구현을 제공하는데 사용할 수 있습니다. 특정 프로토콜을 따르는 타입 중에서 그 프로토콜의 요구사항에 대해 자체적으로 구현한게 있으면 그것을 사용하고 아니면 기본 구현을 사용하게 됩니다. 즉, 프로토콜에서는 선언만 할 수 있는데 익스텐션을 이용해 기본 구현을 제공할 수 있습니다.
 
-> NOTE   
+> NOTE  
 > 프로토콜 익스텐션에 의해 구현된 기본 구현은 옵셔널 요구조건과 다릅니다. 둘다 꼭 구현하지 않아도 되는 것은 같지만 사용시 기본 구현은 옵셔널 체이닝을 사용하지 않아도 됩니다.
 
 아래 예제는 PrettyTextRepresentable의 prettyTextualDescription 프로퍼티의 구현을 그냥 textualDescription을 반환하도록 구현한 예 입니다.
@@ -743,7 +743,7 @@ extension PrettyTextRepresentable  {
 }
 ```
 
-#### 프로토콜 익스텐션에 제약 추가 \(Adding Constraints to Protocol Extensions\)
+### 프로토콜 익스텐션에 제약 추가 \(Adding Constraints to Protocol Extensions\)
 
 프로토콜 익스텐션이 특정 조건에서만 적용되도록 선언할 수 있습니다. 이 선언에는 where 절을 사용합니다. 다음은 Collection 엘리먼트가 Equatable인 경우에만 적용되는 `allEqual()`메소드를 구현한 예입니다.
 
@@ -778,6 +778,5 @@ print(differentNumbers.allEqual())
 // Prints "false"
 ```
 
-
-
 
+

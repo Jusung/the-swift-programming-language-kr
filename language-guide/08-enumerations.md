@@ -2,7 +2,7 @@
 
 열거형은 관련된 값으로 이루어진 그룹을 공통의 형으로\(type\) 선언해 형 안전성\(type-safety\)을 보장하는 방법으로 코드를 다룰 수 있게 해줍니다. C나 Objective-C가 Integer값들로 열거형을 구성한 것에 반해 Swift에서는 case값이 string, character, integer, floting 값들을 사용할 수 있습니다. 열거형은 1급 클래스 형\(first-class types\)이어서 계산된 프로퍼티\(computed properties\)를 제공하거나 초기화를 지정하거나, 초기 선언을 확장해 사용할 수 있습니다.
 
-### 열거형 문법 \(Enumeration Syntax\)
+## 열거형 문법 \(Enumeration Syntax\)
 
 `enum`키워드를 사용해 열거형을 정의합니다.
 
@@ -45,7 +45,7 @@ var directionToHead = CompassPoint.west
 directionToHead = .east
 ```
 
-### Switch 구문에서 열거형 값 매칭하기 \(Matching Enumeration Values with a Switch Statement\)
+## Switch 구문에서 열거형 값 매칭하기 \(Matching Enumeration Values with a Switch Statement\)
 
 각 열거형 값을 `Switch` 문에서 매칭할 수 있습니다.
 
@@ -76,13 +76,13 @@ default:
 }
 ```
 
-### 관련 값 \(Associated Values\)
+## 관련 값 \(Associated Values\)
 
 열거형의 각 case에 custom type의 추가적인 정보를 저장할 수 있습니다.
 
-![](.gitbook/assets/5a40911d-d7ab-489f-9cb3-ccb600be7be8.png)
+![](../.gitbook/assets/5a40911d-d7ab-489f-9cb3-ccb600be7be8.png)
 
-![](.gitbook/assets/8b9e80a3-7fb1-4e96-bffd-f9e6f2505b75.png)
+![](../.gitbook/assets/8b9e80a3-7fb1-4e96-bffd-f9e6f2505b75.png)
 
 예를 들어 바코드가 위와 같이 4가지 구분으로 이루어진 숫자로 이루어진 종류가 있거나, 2,953개의 문자로 구성된 QR코드 형태로 이루어진 두 가지 종류가 있다면 이 바코드를 아래와 같은 열거형으로 정의할 수 있습니다.
 
@@ -129,7 +129,7 @@ case let .qrCode(productCode):
 // Prints "QR code: ABCDEFGHIJKLMNOP."
 ```
 
-### Raw 값 \(Raw Values\)
+## Raw 값 \(Raw Values\)
 
 C와 Objective-C 같이 case에 raw 값을 지정할 수 있습니다.
 
@@ -145,7 +145,7 @@ enum ASCIIControlCharacter: Character {
 
 > Raw값은 관계 값\(associated value\)과는 다릅니다. Raw값은 코드에서 열거형을 처음 선언할 때 정의되서 특정 열거형의 raw값은 항상 같은 값을 갖습니다. 하지만 관계 값은 같은 case라도 생성될 때 달라질 수 있습니다.
 
-#### 암시적으로 할당된 Raw 값 \(Implicitly Assigned Raw Values\)
+### 암시적으로 할당된 Raw 값 \(Implicitly Assigned Raw Values\)
 
 열거형을 다루면서 raw값으로 Integer나 String 값을 사용할 수 있는데, 각 case별로 명시적으로 raw값을 할당할 필요는 없습니다. 만약 raw값을 할당하지 않으면 Swift에서 자동으로 값을 할당해 줍니다.
 
@@ -175,7 +175,7 @@ let sunsetDirection = CompassPoint.west.rawValue
 // sunsetDirection is "west"
 ```
 
-#### Raw 값을 이용한 초기화 \(Initializing from a Raw Value\)
+### Raw 값을 이용한 초기화 \(Initializing from a Raw Value\)
 
 raw값을 이용해 열거형 변수를 초기화 할 수 있습니다. 아래 예제는 raw값 7을 갖는 값을 열거형 변수의 초기 값으로 지정합니다. 그 값은 Uranus입니다.
 
@@ -203,7 +203,7 @@ if let somePlanet = Planet(rawValue: positionToFind) {
 // Prints "There isn't a planet at position 11"
 ```
 
-#### 재귀 열거자 \(Recursive Enumerations\)
+### 재귀 열거자 \(Recursive Enumerations\)
 
 재귀 열거자는 다른 열거 인스턴스를 관계 값으로 갖는 열거형입니다. 재귀 열거자 case는 앞에 `indirect`키워드를 붙여 표시합니다.
 

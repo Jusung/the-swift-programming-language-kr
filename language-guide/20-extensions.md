@@ -9,10 +9,10 @@
 * 중첩 타입의 선언과 사용
 * 특정 프로토콜을 따르는 타입 만들기
 
-> NOTE   
+> NOTE  
 > 익스텐션은 타입에 새 기능을 추가할 수 있지만 오버라이드는\(override\)는 할 수 없습니다.
 
-### 익스텐션 문법 \(Extension Syntax\)
+## 익스텐션 문법 \(Extension Syntax\)
 
 익스텐션은 extension 키워드를 사용해 선언합니다.
 
@@ -32,10 +32,10 @@ extension SomeType: SomeProtocol, AnotherProtocol {
 
 이런 방식으로 프로토콜을 구현하는 것은 Addind Protocol Conformance with an Extension에 설명돼 있습니다. 하나의 익스텐션은 Extending a Generic Type에 설명돼 있는 것처럼 generic 타입으로 확장하는데 사용할 수 있습니다. 또 generic 타입에 조건적으로 기능을 추가 할 수 있는 것은 Extensions with a Generic Where clause에 설명돼 있습니다.
 
-> NOTE   
+> NOTE  
 > 익스텐션을 정의하여 존재하는 타입에 새 기능을 추가하면, 그 기능은 익스텐션을 정의하기 이전에 생성한 인스턴스를 포함한 존재하는 모든 해당 타입의 인스턴스에서 사용 가능합니다.
 
-### 계산된 프로퍼티 \(Computed Properties\)
+## 계산된 프로퍼티 \(Computed Properties\)
 
 익스텐션을 이용해 존재하는 타입에 계산된 인스턴스 프로퍼티와 타입 프로퍼티를 추가할 수 있습니다. 다음 예제는 Swift의 built-in 타입인 Double에 5개의 계산된 인스턴스 프로퍼티를 추가하는 예제 입니다.
 
@@ -65,10 +65,10 @@ print("A marathon is \(aMarathon) meters long")
 
 단위 변환 값이 Double 타입이기 때문에 각각의 변환 값의 연산도 가능합니다.
 
-> NOTE   
+> NOTE  
 > 익스텐션은 새 계산된 값을 추가할 수 있지만 새로운 저장된 프로퍼티나 프로퍼티 옵저버를 추가할 수는 없습니다.
 
-### 이니셜라이저 \(Initializers\)
+## 이니셜라이저 \(Initializers\)
 
 익스텐션을 이용해 존재하는 타입에 새로운 이니셜라이저를 추가할 수 있습니다. 이 방법으로 커스텀 타입의 이니셜라이저 파라미터를 넣을 수 있도록 변경하거나 원래 구현에서 포함하지 않는 초기화 정보를 추가할 수 있습니다.
 
@@ -121,10 +121,10 @@ let centerRect = Rect(center: Point(x: 4.0, y: 4.0),
 // centerRect's origin is (2.5, 2.5) and its size is (3.0, 3.0)
 ```
 
-> NOTE   
+> NOTE  
 > 익스텐션에서 이니셜라이저를 제공할 때 각 인스턴스가 이니셜라이저가 한번 완료되면 완전히 초기화 되도록 확실히 해야 합니다.
 
-### 메소드 \(Methods\)
+## 메소드 \(Methods\)
 
 익스텐션을 이용해 존재하는 타입에 인스턴스 메소드나 타입 메소드를 추가할 수 있습니다. 다음 예제는 Int 타입에 repetitions라는 인스턴스 메소드를 추가한 예제 입니다.
 
@@ -151,7 +151,7 @@ repetitions\(task:\) 메소드는 \(\) -&gt; Void 타입의 하나의 인자를 
 
 함수를 실행하면 함수 안의 task를 숫자 만큼 반복 실행합니다.
 
-### 변경 가능한 인스턴스 메소드 \(Mutating Instance Methods\)
+## 변경 가능한 인스턴스 메소드 \(Mutating Instance Methods\)
 
 익스텐션에서 추가된 인스턴스 메소드는 인스턴스 자신\(self\)을 변경할 수 있습니다. 구조체와 열거형 메소드 중 자기 자신\(self\)를 변경하는 인스턴스 메소드는 원본 구현의 mutating 메소드와 같이 반드시 mutating으로 선언돼야 합니다.
 
@@ -168,7 +168,7 @@ someInt.square()
 // someInt is now 9
 ```
 
-### 서브스크립트 \(Subscripts\)
+## 서브스크립트 \(Subscripts\)
 
 익스텐션을 이용해 존재하는 타입에 새로운 서브스크립트를 추가할 수 있습니다. 다음 예제는 Swift의 built-in 타입에 integer 서브스크립트를 추가한 예제입니다. 서브스크립트 \[n\]은 숫자의 오른쪽에서부터 n번째 위치하는 정수를 반환합니다.
 
@@ -206,7 +206,7 @@ extension Int {
 0746381295[9]
 ```
 
-### 중첩 타입 \(Nested Types\)
+## 중첩 타입 \(Nested Types\)
 
 익스텐션을 이용해 존재하는 클래스, 구조체, 열거형에 중첩 타입을 추가할 수 있습니다.
 
@@ -252,6 +252,6 @@ printIntegerKinds([3, 19, -27, 0, -6, 0, 7])
 
 printIntegerKinds\(\_:\) 함수를 Int 배열을 입력으로 받아 각 Int가 음수, 0, 양수 어디에 속하는지 계산해서 그에 맞는 기호를 반환하는 함수 입니다.
 
-> NOTE   
+> NOTE  
 > number.kind가 이미 switch에서 Int.Kind 타입이라는 것을 알고 있기 때문에 안의 case에서 kind의 축약형인 .negative, .zeo, .positive로 사용할 수 있습니다.
 

@@ -19,11 +19,11 @@ Swift에서 클로저 표현은 최적화 되어서 간결하고 명확합니다
 
 용어가 생소해 어렵게 느끼실 수 있지만, 하나하나 뜯어보면 어렵지 않고 쉽습니다. 그러니 쫄지마세요.
 
-### 클로저 표현 \(Closure Expressions\)
+## 클로저 표현 \(Closure Expressions\)
 
 클로저 표현은 인라인 클로저를 명확하게 표현하는 방법으로 문법에 초첨이 맞춰져 있습니다. 클로저 표현은 코드의 명확성과 의도를 잃지 않으면서도 문법을 축약해 사용할 수 있는 다양한 문법의 최적화 방법을 제공합니다.
 
-#### 정렬 메소드 \(The Sorted Method\)
+### 정렬 메소드 \(The Sorted Method\)
 
 Swift의 표준 라이브러리에 `sorted(by:)`라는 알려진 타입의 배열 값을 정렬하는 메소드를 제공합니다. 여기 `by`에 어떤 방법으로 정렬을 수행할 것인지에 대해 기술한 클로저를 넣으면 그 방법대로 정렬된 배열을 얻을 수 있습니다. `sorted(by:)`메소드는 원본 배열은 변경하지 않습니다. 아래와 같이 이름으로 구성된 `names` 배열을 `sorted(by:)`메소드와 클로저를 이용해 정렬해 보겠습니다.
 
@@ -45,7 +45,7 @@ var reversedNames = names.sorted(by: backward)
 
 `backward`클로저를 만들고 그것을 `names.sorted(by: backward)`에 넣으면 원본 배열의 순서가 바뀐 배열을 정렬 결과로 얻을 수 있습니다. 비교하는 클로저를 사용하는데 제법 긴 코드를 사용했는데, 앞으로 클로저의 다양한 문법 및 사용에 대해 알아 보겠습니다.
 
-#### 클로저 표현 문법 \(Closure Expression Syntax\)
+### 클로저 표현 문법 \(Closure Expression Syntax\)
 
 클로저 표현 문법은 일반적으로 아래의 형태를 띱니다.
 
@@ -69,7 +69,7 @@ reversedNames = names.sorted(by: { (s1: String, s2: String) -> Bool in
 reversedNames = names.sorted(by: { (s1: String, s2: String) -> Bool in return s1 > s2 } )
 ```
 
-#### 문맥에서 타입 추론 \(Inferring Type From Context\)
+### 문맥에서 타입 추론 \(Inferring Type From Context\)
 
 위 예제에서 정렬 클로저는 String 배열에서 `sorted(by:)` 메소드의 인자로 사용됩니다. `sorted(by:)`의 메소드에서 이미 `(String, String) -> Bool` 타입의 인자가 들어와야 하는지 알기 때문에 클로저에서 이 타입들은 생략 될 수 있습니다. 그래서 위 함수는 더 생략한 형태로 아래와 같이 기술 할 수 있습니다.
 
@@ -79,7 +79,7 @@ reversedNames = names.sorted(by: { s1, s2 in return s1 > s2 } )
 
 위와 같이 클로저의 인자 값과 반환 타입을 생략할 수 있지만, 가독성과 코드의 모호성을 피하기 위해 타입을 명시할 수도 있습니다.
 
-#### 단일 표현 클로저에서의 암시적 반환 \(Implicit Returns from Single-Express Closures\)
+### 단일 표현 클로저에서의 암시적 반환 \(Implicit Returns from Single-Express Closures\)
 
 단일 표현 클로저에서는 반환 키워드를 생략할 수 있습니다.
 
@@ -89,7 +89,7 @@ reversedNames = names.sorted(by: { s1, s2 in s1 > s2 } )
 
 이렇게 표현해도 어떠한 모호성도 없습니다. s1과 s2를 인자로 받아 그 두 값을 비교한 결과를 반환합니다.
 
-#### 인자 이름 축약 \(Shorthand Arguments Names\)
+### 인자 이름 축약 \(Shorthand Arguments Names\)
 
 Swift는 인라인 클로저에 자동으로 축약 인자 이름을 제공합니다. 이 인 자를 사용하면 인자 값을 순서대로 $0, $1, $2 등으로 사용할 수 있습니다. 축약 인자 이름을 사용하면 인자 값과 그 인자로 처리할 때 사용하는 인자가 같다는 것을 알기 때문에 인자를 입력 받는 부분과 `in` 키워드 부분을 생략 할 수 있습니다. 그러면 이런 형태로 축약 가능합니다.
 
@@ -99,7 +99,7 @@ reversedNames = names.sorted(by: { $0 > $1 } )
 
 축약은 되었지만 논리를 표현하는데는 지장이 없습니다. 인라인 클로저에 생략된 내용을 포함해 설명하면 1. $0과 $1 인자를 두개 받아서 2. $0이 $1 보다 큰지를 비교하고 3. 그 결과\(Bool\)를 반환해라. 입니다.
 
-#### 연산자 메소드 \(Operator Methods\)
+### 연산자 메소드 \(Operator Methods\)
 
 축약이 이게 끝인줄 아셨겠지만 아닙니다. 😉 여기서 더 줄일 수 있습니다. Swift의 `String` 타입 연산자에는 `String`끼리 비교할 수 있는 비교 연산자\(&gt;\) 를 구현해 두었습니다. 이 때문에 그냥 이 연산자를 사용하면 됩니다.
 
@@ -109,7 +109,7 @@ reversedNames = names.sorted(by: >)
 
 더 많은 정보는 **연산자 메소드**를 참조하시기 바랍니다.
 
-### 후위 클로저 \(Trailing Closures\)
+## 후위 클로저 \(Trailing Closures\)
 
 만약 함수의 마지막 인자로 클로저를 넣고 그 클로저가 길다면 후위 클로저를 사용할 수 있습니다. 이런 형태의 함수와 클로저가 있다면
 
@@ -177,7 +177,7 @@ let strings = numbers.map { (number) -> String in
 
 > `digitNames[number % 10]!`에 뒤에 느낌표\(!\)가 붙어있는 것은 사전\(dictionary\)의 `subscript`는 옵셔널이기 때문입니다. 즉, 사전에서 특정 `key`에 대한 값은 있을 수도 있고 없을 수도 있기 때문에 논리적으로 당연한 일입니다.
 
-### 값 캡쳐 \(Capturing Values\)
+## 값 캡쳐 \(Capturing Values\)
 
 클로저는 특정 문맥의 상수나 변수의 값을 캡쳐할 수 있습니다. 다시말해 원본 값이 사라져도 클로져의 `body`안에서 그 값을 활용할 수 있습니다. Swift에서 값을 캡쳐 하는 가장 단순한 형태는 `중첩 함수(nested function)` 입니다. 중첩 함수는 함수의 body에서 다른 함수를 다시 호출하는 형태로 된 함수 입니다. 예제를 보겠습니다.
 
@@ -241,7 +241,7 @@ incrementByTen()
 
 > 만약 클로저를 어떤 클래스 인스턴스의 프로퍼티로 할당하고 그 클로저가 그 인스턴스를 캡쳐링하면 강한 순환참조에 빠지게 됩니다. 즉, 인스턴스의 사용이 끝나도 메모리를 해제하지 못하는 것이죠. 그래서 Swift는 이 문제를 다루기 위해 캡쳐 리스트\(capture list\)를 사용합니다. 더 많은 정보는 **클로저의 강한 참조 순환**을 참조하세요.
 
-### 클로저는 참조 타입 \(Closures Are Reference Types\)
+## 클로저는 참조 타입 \(Closures Are Reference Types\)
 
 앞의 예제에서 `incrementBySeven`과 `incrementByTen`은 상수입니다. 그런데 어떻게 `runningTotal`변수를 계속 증가 시킬 수 있는 걸까요? 답은 함수와 클로저는 참조 타입이기 때문입니다. 함수와 클로저를 상수나 변수에 할당할 때 실제로는 상수와 변수에 해당 함수나 클로저의 참조\(reference\)가 할당 됩니다. 그래서 만약 한 클로저를 두 상수나 변수에 할당하면 그 두 상수나 변수는 같은 클로저를 참조하고 있습니다. C나 C++에 익숙하신 분은 함수 포인터를 저장한다고 생각하시면 이해하기 쉬우실 것입니다.
 
@@ -253,7 +253,7 @@ alsoIncrementByTen()
 
 앞에서 사용했던 클로저를 상수에 할당하고 실행시키면 사용한 클로저의 마지막 상태에서 10을 증가시켜 결과 값으로 50을 반환하게 됩니다.
 
-### 이스케이핑 클로저 \(Escaping Closures\)
+## 이스케이핑 클로저 \(Escaping Closures\)
 
 클로저를 함수의 파라미터로 넣을 수 있는데, 함수 밖\(함수가 끝나고\)에서 실행되는 클로저 예를들어, 비동기로 실행되거나 `completionHandler`로 사용되는 클로저는 파라미터 타입 앞에 `@escaping`이라는 키워드를 명시해야 합니다.
 
@@ -291,7 +291,7 @@ print(instance.x)
 // Prints "100"
 ```
 
-### 자동클로저 \(Autoclosures\)
+## 자동클로저 \(Autoclosures\)
 
 자동클로저는 인자 값이 없으며 특정 표현을 감싸서 다른 함수에 전달 인자로 사용할 수 있는 클로저입니다. 자동클로저는 클로저를 실행하기 전까지 실제 실행이 되지 않습니다. 그래서 계산이 복잡한 연산을 하는데 유용합니다. 왜냐면 실제 계산이 필요할 때 호출되기 때문입니다. 예제를 보면서 무슨 뜻인지 알아 보겠습니다.
 

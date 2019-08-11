@@ -2,7 +2,7 @@
 
 Swift에서는 while loop, if guard, switch, for-in loop 등 많은 제어문을 제공합니다.
 
-### For-In Loops
+## For-In Loops
 
 배열, 숫자, 문자열을 순서대로 순회\(iterate\)하기 위해 사용합니다.
 
@@ -83,11 +83,11 @@ for tickMark in stride(from: 3, through: hours, by: hourInterval) {
 }
 ```
 
-### While Loops
+## While Loops
 
 Swift에서는 `while`과 `repeat-while` 두 가지 종류의 `while loop`를 지원합니다.
 
-#### While
+### While
 
 조건\(condition\)이 거짓\(false\)일때까지 구문\(statements\)을 반복합니다.
 
@@ -116,7 +116,7 @@ while square < finalSquare {
 print("Game over!")
 ```
 
-#### Repeat-While
+### Repeat-While
 
 > `reapeat-while loop`는 다른 언어의 `do-while loop`와 유사한 `while-loop`입니다.
 
@@ -143,11 +143,11 @@ repeat {
 print("Game over!")
 ```
 
-### 조건적 구문 \(Conditional Statements\)
+## 조건적 구문 \(Conditional Statements\)
 
 Swift에서는 `if`와 `switch`문 두 가지의 조건 구문을 제공합니다.
 
-#### If문
+### If문
 
 \(예1\) If만 사용
 
@@ -196,7 +196,7 @@ if temperatureInFahrenheit <= 32 {
 }
 ```
 
-#### Switch
+### Switch
 
 Switch문의 기본 형태
 
@@ -227,11 +227,11 @@ default:
 // Prints "The last letter of the alphabet"
 ```
 
-#### 암시적인 진행을 사용하지 않음 \(No Implicit Fallthrough\)
+### 암시적인 진행을 사용하지 않음 \(No Implicit Fallthrough\)
 
 C와 Objective-C의 `switch` 구문과는 달리 Swift의 `switch`구문은 암시적인 진행을 하지 않습니다. C나 Objective-C에서는 `switch` 구문이 기본적으로 모든 case를 순회하여 default를 만날 때까지 진행됩니다. 그래서 그것을 진행하지 않기 위해 break라는 녀석을 명시적으로 적어야 했습니다. Swift에서는 break를 적지 않아도 특정 case가 완료되면 자동으로 `switch`구문을 빠져 나오게 됩니다. 이런 사용법으로 인해 실수로 break를 적지않아 의도하지 않은 case문이 실행되는 것을 방지해줍니다.
 
-> NOTE   
+> NOTE  
 > break가 Swift에서 필수적이지는 않지만 case안에 특정 지점에서 멈추도록 하기 위해 break를 사용할 수 있습니다. 자세한 내용은 Break in a Switch Statement를 참조해주세요.
 
 `case` 안 에 최소 하나의 실행 구문이 반드시 있어야 합니다.
@@ -263,10 +263,10 @@ default:
 
 가독성 때문에 혼합해 사용하는 경우를 여러 코드라인에 나눠서 적을 수 있습니다. 더 많은 정보는 Compound Cases에서 볼 수 있습니다.
 
-> Note   
+> Note  
 > 명시적으로 switch-case 문의 특정 지점의 끝까지 실행하고 싶다면 `fallthrough` 키워드를 사용할 수 있습니다. 자세한 정보는 Fallthrough 볼 수 있습니다.
 
-#### 인터벌 매칭 \(Interval Matching\)
+### 인터벌 매칭 \(Interval Matching\)
 
 숫자의 특정 범위를 조건으로 사용할 수 있습니다.
 
@@ -292,7 +292,7 @@ print("There are \(naturalCount) \(countedThings).")
 // Prints "There are dozens of moons orbiting Saturn."
 ```
 
-#### 튜플 \(Tuple\)
+### 튜플 \(Tuple\)
 
 튜플을 조건으로 사용할 수 있습니다.
 
@@ -313,7 +313,7 @@ default:
 // Prints "(1, 1) is inside the box"
 ```
 
-#### 값 바인딩 \(Value Bindings\)
+### 값 바인딩 \(Value Bindings\)
 
 특정 x, y 값을 각각 다른 case에 정의하고 그 정의된 상수를 또 다른 case에서 사용할 수 있습니다. 이런 기법을 값-바인딩\(value bindings\)라 부릅니다.
 
@@ -330,7 +330,7 @@ case let (x, y):
 // Prints "on the x-axis with an x value of 2"
 ```
 
-#### Where 문
+### Where 문
 
 case에 where 조건을 사용할 수 있습니다.
 
@@ -347,7 +347,7 @@ case let (x, y):
 // Prints "(1, -1) is on the line x == -y"
 ```
 
-#### 혼합 케이스 \(Compound Cases\)
+### 혼합 케이스 \(Compound Cases\)
 
 case에 콤마\(,\)로 구분해 여러 조건을 혼합해 사용할 수 있습니다.
 
@@ -378,7 +378,7 @@ default:
 // Prints "On an axis, 9 from the origin"
 ```
 
-### 제어 전송 구문 \(Control Transfer Statements\)
+## 제어 전송 구문 \(Control Transfer Statements\)
 
 제어 전송 구문은 코드의 진행을 할지 말지 혹은 실행되는 코드의 흐름을 바꾸기 위해 사용합니다. Swift에서는 다음 다섯 가지의 제어 전송 구문을 제공합니다.
 
@@ -388,7 +388,7 @@ default:
 * return
 * throw
 
-#### continue 문
+### continue 문
 
 continue문은 현재 loop를 중지하고 다음 loop를 수행하도록 합니다.
 
@@ -407,7 +407,7 @@ print(puzzleOutput)
 // Prints "grtmndsthnklk"
 ```
 
-#### break
+### break
 
 break문은 전체 제어문의 실행을 즉각 중지 시킵니다. break문은 loop나 switch문에서 사용할 수 있습니다.
 
@@ -433,7 +433,7 @@ if let integerValue = possibleIntegerValue {
 }
 ```
 
-#### fallthrough
+### fallthrough
 
 `fallthrough` 키워드는 이후의 case에 대해서도 실행하게 합니다. 앞에서 언급했던 것 처럼 Swift에서는 한번 특정 case를 타면 바로 그 switch 문은 종료됩니다. 마치 case 안에 break를 자동으로 넣은 것과 같은 기능을 하는 것이죠. 하지만 이 `fallthrough` 를 사용하면 이 자동으로 break가 사용되는 것을 막는 효과를 가져옵니다.
 
@@ -453,7 +453,7 @@ print(description)
 
 > NOTE fallthrough 는 case 조건을 확인하지 않고 그냥 다음 case를 실행하게 만듭니다.
 
-#### 레이블 구문 \(Labeled Statements\)
+### 레이블 구문 \(Labeled Statements\)
 
 아래와 같은 형태로 `label` 이름과 `while` 조건을 넣어 특정 구문을 실행하는 구문으로 사용할 수 있습니다.
 
@@ -485,7 +485,7 @@ gameLoop: while square != finalSquare {
 print("Game over!")
 ```
 
-#### 이른 탈출 \(Early Exit\)
+### 이른 탈출 \(Early Exit\)
 
 `guard`문을 이용해 특정 조건을 만족하지 않으면 이 후 코드를 실행하지 않도록 방어코드를 작성할 수 있습니다.
 
@@ -513,7 +513,7 @@ greet(person: ["name": "Jane", "location": "Cupertino"])
 // Prints "I hope the weather is nice in Cupertino."
 ```
 
-### 이용가능한 API 버전 확인 \(Checking API Availability\)
+## 이용가능한 API 버전 확인 \(Checking API Availability\)
 
 Swift에서는 기본으로 특정 플랫폼 \(iOS, macOS, tvOS, watchOS\)과 특정 버전을 확인하는 구문을 제공해 줍니다. 이 구문을 활용해 특정 플랫폼과 버전을 사용하는 기기에 대한 처리를 따로 할 수 있습니다. 구문의 기본 형태는 다음과 같습니다.
 

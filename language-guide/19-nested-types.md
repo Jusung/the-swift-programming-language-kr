@@ -2,7 +2,7 @@
 
 열거형은 특정 구조체나 클래스의 기능을 처리하기 위해 자주 사용됩니다. 이와 비슷하게 특정 문맥에서 좀 더 복잡한 타입을 위해 사용할 수 있는 유틸리티 클래스나 구조체를 정의할 수 있습니다. Swift에서는 이 기능을 위해 중첩 타입\(nested types\)을 지원합니다. 열거형, 클래스, 구조체를 그 타입 안에서 다시 정의할 수 있습니다.
 
-### 중첩 타입의 사용
+## 중첩 타입의 사용
 
 다음 코드는 블랙잭 게임에서 사용되는 카드를 모델링한 BlackjackCard라는 구조체를 정의한 \(예\)입니다. BlackjackCard 구조체는 Suit과 Rank라고 부르는 두개의 중첩 열거 타입을 포함 합니다.
 
@@ -70,7 +70,7 @@ print("theAceOfSpades: \(theAceOfSpades.description)")
 
 .ace, .spades가 BlackjackCard안에 중첩 타입으로 선언돼 있기 때문에 타입 추론이 가능 하기 때문에 BlackjackCard 초기화시 타입형의 전체 명시 없이 .ace, .spades 로 사용할 수 있습니다.
 
-### 중첩 타입의 언급 \(Referring to Nested Types\)
+## 중첩 타입의 언급 \(Referring to Nested Types\)
 
 중첩 타입을 선언 밖에서 사용하려면 선언된 곳의 시작부터 끝까지 적어줘야 합니다.
 

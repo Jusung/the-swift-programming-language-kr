@@ -2,7 +2,7 @@
 
 옵셔널 체이닝은 nil일 수도 있는 프로퍼티나, 메소드 그리고 서브스크립트에 질의\(query\)를하는 과정을 말합니다. 만약 옵셔널이 프로퍼티나 메소드 혹은 서브스크립트에 대한 값을 갖고 있다면 그 값을 반환하고 만약 값이 nil이면 nil을 반환 합니다. 여러 질의를 연결해서 할 수도 있는데, 연결된 질의에서 어느 하나라도 nil이면 전체 결과는 nil이 됩니다.
 
-> NOTE   
+> NOTE  
 > Swift에서 옵셔널 체이닝은 Objective-C에서의 nil 메시징과 유사합니다. 차이점은 Swift에서는 옵셔널 체이닝은 reference type뿐만 아니라 primitive타입에서 사용도 가능하고 값을 가져오는데 성공했는지 실패했는지 확인할 수 있습니다.
 
 ## 강제 언래핑의 대체로써의 옵셔널 체이닝 \(Optional Chaining as an Alternative to Forced Unwrapping\)
@@ -208,7 +208,7 @@ if (john.residence?.address = someAddress) != nil {
 
 옵셔널 체이닝을 이용해 옵셔널 값을 서브스크립트로 접근할 수 있습니다.
 
-> NOTE   
+> NOTE  
 > 옵셔널 값을 서브스크립트로 접근 하기 위해서는 \[\] 괄호 전에 물음표\(?\) 기호를 붙여서 사용합니다.
 
 아래 예제는 서브스크립트를 이용해 rooms에서 첫 rooms의 name을 요청하는 코드입니다. 현재 john.residence가 nil이기 때문에 서브스크립트 접근은 실패합니다.
@@ -318,8 +318,6 @@ if let beginsWithThe =
 // Prints "John's building identifier begins with "The"."
 ```
 
-> NOTE   
+> NOTE  
 > 옵셔널이 반환 값에 걸려있고 메소드 자체에 걸려 있는 것이 아니기 때문에 메소드 괄호 뒤에 “?”를 붙여 줍니다.
-
-
 

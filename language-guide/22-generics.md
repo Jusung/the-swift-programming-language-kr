@@ -2,7 +2,7 @@
 
 지네릭은 더 유연하고 재사용 가능한 함수와 타입의 코드를 작성하는 것을 가능하게 해 줍니다.
 
-### 지네릭이 풀려고 하는 문제 \(The Problem That Generics Solve\)
+## 지네릭이 풀려고 하는 문제 \(The Problem That Generics Solve\)
 
 아래와 같이 두 Int 값을 바꾸는 함수가 있습니다. 인자로 넣는 두개의 파라미터는 inout 파라미터입니다. 그래서 두 값의 원본을 변경하게 됩니다.
 
@@ -42,10 +42,10 @@ func swapTwoDoubles(_ a: inout Double, _ b: inout Double) {
 
 위 예를 보면 아마 알아차리셨을 것입니다. 각 함수는 인자값의 타입만 다르고 함수의 내용을 동일하다는 사실을. 지네릭을 사용하면 이렇게 인자값의 타입만 다르고 수행하는 기능이 동일한 것을 하나의 함수로 만들 수 있습니다.
 
-> NOTE   
+> NOTE  
 > 위 세 함수에서 모두 a와 b의 타입이 동일해야 합니다. 만약 a와 b가 동일하지 않다면 두 값을 바꿔치기 할 수 없습니다. Swift는 타입-세이프 언어여서 `String`과 `Double`를 바꾸려고 하면 컴파일 에러가 발생합니다.
 
-### 지네릭 함수 \(Generic Functions\)
+## 지네릭 함수 \(Generic Functions\)
 
 위 세 함수를 하나의 지네릭 함수로 만들어 보겠습니다. 함수명 뒤에 타입 이름 플레이스 홀더인 를 선언하고 a, b 파라미터를 T로 선언합니다. 플레이스 홀더인 T는 타입이 어떤 타입이어야 하는지 명시하지 않습니다. 다만 두 인자의 타입 같다는 것을 알려줍니다.
 
@@ -78,29 +78,29 @@ swapTwoValues(&someString, &anotherString)
 // someString is now "world", and anotherString is now "hello"
 ```
 
-> NOTE   
+> NOTE  
 > 지네릭의 예로 생성한 `swapTwoValues`함수는 Swift에서 `swap` 기본적으로 제공합니다.
 
-### 타입 파라미터 \(Type Parameters\)
+## 타입 파라미터 \(Type Parameters\)
 
 위에서 사용한 플레이스 홀더 T는 타입 파라미터의 예입니다. 타입 파라미터는 플레이스 홀더 타입의 이름을 명시하고 함수명 바로 뒤에 적어줍니다. 그리고 와 같이 꺽쇄로 묶어 줍니다. 타입 파라미터를 한번 선언하면 이 것을 함수의 타입으로 사용할 수 있습니다. 복수의 타입 파라미터를 사용할때는 와 같이 콤마로 구분해 줍니다.
 
-### 파라미터 이름짓기 \(Naming Type Parameters\)
+## 파라미터 이름짓기 \(Naming Type Parameters\)
 
 Dictionary의 Key, Value와 같이 엘리먼트 간의 서로 상관관계가 있는 경우 의미가 있는 이름을 파라미터 이름으로 붙이고 그렇지 않은 경우는 T, U, V와 같은 단일 문자로 파라미터 이름을 짓습니다.
 
 > 항상 파라미터 이름은 T나 MyTypeParameter와 같이 대문자 카멜 케이스로 이름 짓습니다. 대문자로 된 이름은 값\(value\)이 아니라 타입\(type\)을 의미합니다.
 
-### 지네릭 타입 \(Generic Types\)
+## 지네릭 타입 \(Generic Types\)
 
 지네릭 함수에 추가로 Swift에서는 지네릭 타입을 정의할 수 있습니다. 이후 섹션에서는 Stack이라는 지네릭 콜렉션 타입을 어떻게 구현하는지 보여줄 예정입니다.
 
-> NOTE   
+> NOTE  
 > 스택은 `UINavigationController`에서 사용하는 자료구조입니다. 네비게이션 계층에 뷰 컨트롤러를 `pushViewController`와 `popViewController`를 이용해 추가하거나 뺄 수 있습니다.
 
 다음 그림은 스택이 어떻게 동작하는지 설명해 줍니다.
 
-![](.gitbook/assets/stackpushpop_2x.png)
+![](../.gitbook/assets/stackpushpop_2x.png)
 
 Int 값을 스택에 넣고\(push\) 빼는\(pop\) 함수 `IntStack`의 구현은 다음과 같습니다.
 
@@ -143,7 +143,7 @@ stackOfStrings.push("cuatro")
 
 아래 그림과 같이 스택에 4개의 `String`값이 들어가게 됩니다.
 
-![](.gitbook/assets/stackpushedfourstrings_2x.png)
+![](../.gitbook/assets/stackpushedfourstrings_2x.png)
 
 스택에서 값을 빼기 위해 `pop()`함수를 실행합니다.
 
@@ -154,9 +154,9 @@ let fromTheTop = stackOfStrings.pop()
 
 스택의 최상단에 있는 값을 결고로 뱉습니다.
 
-![](.gitbook/assets/stackpoppedonestring_2x.png)
+![](../.gitbook/assets/stackpoppedonestring_2x.png)
 
-### 지네릭 타입의 확장 \(Extending a Generic Type\)
+## 지네릭 타입의 확장 \(Extending a Generic Type\)
 
 익스텐션을 이용해 지네릭 타입을 확장할 수 있습니다. 이때 원래 선언한 파라미터 이름을 사용합니다. 여기서는 `Element`라는 파라미터를 사용합니다.
 
@@ -179,11 +179,11 @@ if let topItem = stackOfStrings.topItem {
 
 실행결과 스택의 최상단의 값을 확인할 수 있습니다.
 
-### 타입 제한 \(Type Constraints\)
+## 타입 제한 \(Type Constraints\)
 
 Swift의 Dictionary 타입은 key값을 사용합니다. 이때 key는 유일한 값이어야 하기 때문에 `hashable`이라는 프로토콜을 반드지 따라야 합니다. 그렇지 않으면 key로 value에 접근했을 때 적절한 value를 얻지 못할 수 있습니다. 이와 같이 특정 타입이 반드시 어떤 프로토콜을 따라야 하는 경우가 있습니다. 지네릭에서도 이런 경우가 필요할 수 있습니다. 지네릭에서는 특정 클래스를 상속하거나 특정 프로토콜을 따르거나 합성하도록 명시할 수 있습니다.
 
-#### 타입 제한 문법 \(Type Constraint Syntax\)
+### 타입 제한 문법 \(Type Constraint Syntax\)
 
 지네릭 함수를 선언할 때, 파라미터 뒤에 상속 받아야 하는 클래스를 선언하거나, 반드시 따라야 하는 프로토콜을 명시할 수 있습니다.
 
@@ -193,7 +193,7 @@ func someFunction<T: SomeClass, U: SomeProtocol>(someT: T, someU: U) {
 }
 ```
 
-#### 타입 제한의 실 사용 \(Type Constraints in Action\)
+### 타입 제한의 실 사용 \(Type Constraints in Action\)
 
 다음과 같이 한 배열에서 특정 문자를 검색하는 `findIndex` 함수를 선언합니다.
 
@@ -253,11 +253,11 @@ let stringIndex = findIndex(of: "Andrea", in: ["Mike", "Malcolm", "Andrea"])
 // stringIndex is an optional Int containing a value of 2
 ```
 
-### 연관 타입 \(Associated Types\)
+## 연관 타입 \(Associated Types\)
 
 연관타입은 프로토콜의 일부분으로 타입에 플레이스홀더 이름을 부여합니다. 다시말해 특정 타입을 동적으로 지정해 사용할 수 있습니다.
 
-#### 연관 타입의 실 사용 \(Associated Types in Action\)
+### 연관 타입의 실 사용 \(Associated Types in Action\)
 
 아래와 같이 Item에 `associatedtype`를 사용할 수 있습니다. 이렇게 지정하면 Item은 어떤 타입도 될 수 있습니다.
 
@@ -321,7 +321,7 @@ struct Stack<Element>: Container {
 }
 ```
 
-#### 존재 하는 타입에 연관 타입을 확장 \(Extending an Existing Type to Specify an Associated Type\)
+### 존재 하는 타입에 연관 타입을 확장 \(Extending an Existing Type to Specify an Associated Type\)
 
 아래와 같이 기존의 타입 Array이에 특정 연관 타입을 추가할 수 있습니다.
 
@@ -329,7 +329,7 @@ struct Stack<Element>: Container {
 extension Array: Container {}
 ```
 
-#### Adding Constraints to an Associated Type
+### Adding Constraints to an Associated Type
 
 이것이 가능한 이유는 Array 타입은 아래 Container에 선언된 `append`, `count`, `subscript`가 모두 정의돼 있기 때문입니다.
 
@@ -342,7 +342,7 @@ protocol Container {
 }
 ```
 
-#### 프로토콜에 연관 타입의 제한 사용하기 \(Using a Protocol in Its Associated Type’s Constraints\)
+### 프로토콜에 연관 타입의 제한 사용하기 \(Using a Protocol in Its Associated Type’s Constraints\)
 
 연관 타입을 적용할 수 있는 타입에 조건을 걸어 제한을 둘 수 있습니다. 조건을 붙일때는 where구문을 사용합니다. 이 조건에는 특정 탑입인지의 여부, 특정 프로토콜을 따르는지 여부 등이 사용될 수 있습니다. 다음은 Suffix가 SuffixableContainer프로토콜을 따르고 Item타입이 반드시 Container의 Item타입이어야 한다는 조건을 추가한 것입니다.
 
@@ -389,7 +389,7 @@ extension IntStack: SuffixableContainer {
 }
 ```
 
-### 지네릭의 Where절 \(Generic Where Clauses\)
+## 지네릭의 Where절 \(Generic Where Clauses\)
 
 지네릭에서도 where절을 사용할 수 있습니다. 다음은 Container C1, C2를 비교하며 모든 값이 같을 때 `true`를 반환하는 `allItemsMatch` 함수를 구현하면 다음과 같습니다.
 
@@ -435,7 +435,7 @@ if allItemsMatch(stackOfStrings, arrayOfStrings) {
 
 Container 종류는 다르지만 안의 내용이 같으므로 모든 아이템일 일치한다는 결과를 반환합니다.
 
-### Where절을 포함하는 지네릭의 익스텐션 \(Extensions with a Generic Where Clause\)
+## Where절을 포함하는 지네릭의 익스텐션 \(Extensions with a Generic Where Clause\)
 
 지네익의 익스텐션을 선언할때 where절을 포함시킬 수 있습니다. 다음은 isTop함수를 익스텐션으로 추가하면서 이 함수가 추가되는 Stack은 반드시 `Equatable` 프로토콜을 따라야 한다고 제한을 부여한 코드입니다.
 
@@ -510,7 +510,7 @@ print([1260.0, 1200.0, 98.6, 37.0].average())
 
 Container의 Item `[1260.0, 1200.0, 98.6, 37.0]`이 Double형이기 때문에 익스텐션에서 구현된 average\(\)를 사용할 수 있습니다.
 
-### 지네릭의 연관 타입에 where절 적용 \(Associated Types with a Generic Where Clause\)
+## 지네릭의 연관 타입에 where절 적용 \(Associated Types with a Generic Where Clause\)
 
 연관 타입에도 where절을 적용해 제한을 둘 수 있습니다. 아래는 연관 타입 Iterator에 Iterator의 Element가 Item과 같아야 한다는 조건을 건 예입니다.
 
@@ -532,7 +532,7 @@ protocol Container {
 protocol ComparableContainer: Container where Item: Comparable { }
 ```
 
-### 지네틱 서브스크립트 \(Generic Subscripts\)
+## 지네틱 서브스크립트 \(Generic Subscripts\)
 
 지네릭의 서브스크립트에도 조건을 걸 수 있습니다. 아래 예제는 `Indices.Iterator.Element`가 Int 형이어야 한다는 조건을 건 예입니다.
 
@@ -548,6 +548,4 @@ extension Container {
     }
 }
 ```
-
-
 

@@ -2,7 +2,7 @@
 
 클래스와 구조체는 프로그램의 코드를 조직화 하기 위해 일반적으로 사용합니다. OOP를 위한 필요 요소이기도 합니다. Swift는 다른 프로그래밍 언어와 다르게 `interface`파일과 `implementation`파일을 분리해서 만들지 않아도 됩니다. 하나의 파일에 구조체나 클래스를 정의하면, Swift가 자동으로 알아서 해당 클래스와 구조체를 사용할 수 있는 인터페이스를 생성해 줍니다.
 
-### 클래스와 구조체의 비교 \(Comparing Classes and Structures\)
+## 클래스와 구조체의 비교 \(Comparing Classes and Structures\)
 
 Swift에서 클래스와 구조체는 많은 공통점이 있습니다. 클래스와 구조체 둘다 다음과 같은 기능이 가능합니다.
 
@@ -24,10 +24,10 @@ Swift에서 클래스와 구조체는 많은 공통점이 있습니다. 클래�
 
 더 많은 정보는 상속, 타입캐스팅, 소멸자 그리고 자동 참조 카운트를 참조
 
-> NOTE   
+> NOTE  
 > 구조체는 다른 코드로 전달될 때 항상 복사되서 전달되고, 참조 카운트\(Reference counting\)를 사용하지 않습니다.
 
-#### 선언 문법 \(Definition Syntax\)
+### 선언 문법 \(Definition Syntax\)
 
 클래스와 구조체 둘다 비슷한 선언 문법을 갖고 있습니다. 클래스는 `class` 키워드를 구조체는 `struct` 키워드를 이름 앞에 적어서 선언할 수 있습니다.
 
@@ -40,7 +40,7 @@ struct SomeStructure {
 }
 ```
 
-> NOTE   
+> NOTE  
 > 새로운 클래스나 구조체를 선언할 때마다 Swift 에서 완전 새로운 타입을 선언하는 것입니다. 그래서 이름을 다른 표준 Swift 타입\(String, Int, Bool\)과 같이 UpperCamelCase 이름\(SomeClass, SomeStructure 등\)으로 선언합니다. 반대로 프로퍼티나 메소드는 lowerCamelCase\(frameRate, incrementCount 등\)으로 선언합니다.
 
 아래는 각각 구조체 선언과 클래스 선언의 예입니다.
@@ -60,7 +60,7 @@ class VideoMode {
 
 구조체 `Resolution`의 프로퍼티 `width` 와 `height`는 초기 값으로 0을 할당 했기 때문에 Swift의 타입추론에 의해 자동으로 `Int`형을 갖게 됩니다.
 
-#### 클래스와 구조체 인스턴스 \(Class and Structure Instances\)
+### 클래스와 구조체 인스턴스 \(Class and Structure Instances\)
 
 클래스와 구조체 이름 뒤에 빈 괄호를 적으면 각각의 인스턴스를 생성할 수 있습니다.
 
@@ -69,7 +69,7 @@ let someResolution = Resolution()    // 구조체 인스턴스 생성
 let someVideoMode = VideoMode()    // 클래스 인스턴스 생성
 ```
 
-#### 프로퍼티 접근 \(Accessing Properties\)
+### 프로퍼티 접근 \(Accessing Properties\)
 
 점\(dot\) 문법을 통해 클래스/구조체 인스턴스의 프로퍼티에 접근할 수 있습니다.
 
@@ -93,10 +93,10 @@ print("The width of someVideoMode is now \(someVideoMode.resolution.width)")
 // "The width of someVideoMode is now 1280" 이 출력
 ```
 
-> NOTE   
+> NOTE  
 > Objective-C와 다르게 Swift에서는 하위레벨의 구조체 프로퍼티도 직접 설정할 수 있습니다. 위 예를 들면 `someVideoMode.resolution.width = 1280` 처럼 resolution 전체의 값을 설정하지 않고 width 프로퍼티만 직접 설정할 수 있었습니다.
 
-#### 구조체형의 맴버 초기화 \(Memberwise Initializers for Structure Types\)
+### 구조체형의 맴버 초기화 \(Memberwise Initializers for Structure Types\)
 
 모든 구조체는 초기화시 프로퍼티를 선언할 수 있는 초기자를 자동으로 생성해 제공합니다. 아래와 같은 맴버의 초기화는 구조체 안에 `width`와 `height`프로퍼티만 정의했다면 자동으로 사용 가능하다는 의미입니다.
 
@@ -104,7 +104,7 @@ print("The width of someVideoMode is now \(someVideoMode.resolution.width)")
 let vga = Resolution(width: 640, height: 480)
 ```
 
-### 구조체와 열거형은 값 타입 \(Structures and Enumerations Are Value Types\)
+## 구조체와 열거형은 값 타입 \(Structures and Enumerations Are Value Types\)
 
 값 타입이라는 뜻은, 이것이 함수에서 상수나 변수에 전달될 때 그 값이 **복사되서 전달** 된다는 의미입니다. Swift에서 모든 구조체와 열거형 타입은 값 타입입니다. 예제를 보시겠습니다.
 
@@ -152,7 +152,7 @@ if rememberedDirection == .west {
 
 현재 방향 `currentDirection`에 `west`를 할당하고 기억한 방양 `rememberedDirection`에 현재 방향 `currentDirection`을 저장합니다. 그리고 나서 현재 방향 `currentDirection`을 `east`로 변경합니다. 그리고 나서 기억하고 있는 인스턴스 `rememberedDirection`를 살펴보면 여전히 원본을 복사할 때의 값 `west`를 갖고 있는 것을 확인할 수 있습니다. 즉, 다른 인스턴스의 변화는 그 인스턴스에만 영향을 끼치고 그것과 가른 인스턴스에는 아무런 영향도 없다는 것을 알 수 있습니다.
 
-### 클래스는 참조 타입 \(Classes Are Reference Types\)
+## 클래스는 참조 타입 \(Classes Are Reference Types\)
 
 값 타입과 달리 참조 타입은 변수나 상수에 값을 할당을 하거나 함수에 인자로 전달할 때 그 값이 복사되지 않고 참조 됩니다. 참조된다는 의미는 그 값을 갖고 있는 메모리를 바라보고 있다는 뜻 입니다. 예제를 보겠습니다.
 
@@ -182,7 +182,7 @@ print("The frameRate property of tenEighty is now \(tenEighty.frameRate)")
 
 가장 처음에 `tenEighty.frameRate = 25.0` 에서 할당한 25.0이 아니라 나중에 `alsoTenEighty.frameRate = 30.0`에서 변경한 30이 결과 값으로 출력되었습니다. 그 이유는 `let alsoTenEighty = tenEighty`코드에서 `alsoTenEighty`상수가 `tenEighty`인스턴스를 복사한 것이 아니라 참조한 것이기 때문입니다. 그래서 실제로 `alsoTenEighty`는 `tenEighty`가 바라보고 있는 메모리 주소를 동일하게 바라보고 참조하고 있는 것입니다. 여기서 한가지 더 의아하게 생각하실 수 있는 부분은 `let alsoTenEighty = tenEighty`로 `alsoTenEighty`를 상수로 선언했는데 어떻게 `alsoTenEighty.frameRate = 30.0` 같이 값을 변경할 수 있을까? 입니다. 이것은 `alsoTenEighty`자체를 변경하는 것이 아니라 그것이 바라보는 값을 변경하는 것이기 때문에 가능합니다.
 
-#### 식별 연산자 \(Identity Operators\)
+### 식별 연산자 \(Identity Operators\)
 
 클래스는 참조 타입이기 때문에 여러 상수와 변수에서 같은 인스턴스를 참조할 수 있습니다. 상수와 변수가 같은 인스턴스를 참조하고 있는지 비교하기 위해 식별 연산자를 사용합니다.
 
@@ -200,11 +200,11 @@ print("The frameRate property of tenEighty is now \(tenEighty.frameRate)")
 
 식별 연산자\(===\)는 비교 연산자\(==\)와 같지 않습니다. 식별 연산자는 참조를 비교하는 것이고, 비교 연산자는 값을 비교합니다.
 
-#### 포인터 \(Pointers\)
+### 포인터 \(Pointers\)
 
 C, C++ 혹은 Objective-C를 사용해 보신 분이라면 이 참조라는 것이 포인터라고 생각하실 수 있습니다. Swift에서 상수나 변수가 특정 타입의 인스턴스를 참조하고 있다는 것은 위 포인터와 유사합니다. 하지만 표현에는 다른 점이 있는데요 C, C++, Objective-C에서 포인터는 실제 메모리를 직접 가르키고 있고 _키워드로 표시하지만 Swift는 참조를 가르키기 위해_ 를 사용하지 않고 대신 다른 상수와 변수처럼 정의해 사용합니다.
 
-### 클래스와 구조체의 선택 \(Choosing Between Classes and Structures\)
+## 클래스와 구조체의 선택 \(Choosing Between Classes and Structures\)
 
 클래스와 구조체 모두 프로그앰의 코드를 조직화 하고 특정 타입을 선언하는데 사용됩니다. 그리고 앞서 설명했던 것처럼 클래스 인스턴스가 인자로 사용될 때는 참조가 넘어가고 구조체는 값이 넘어간다고 했습니다. 그럼 언제 클래스를 사용하고 언제 구조체를 사용해야 할까요?
 
@@ -219,10 +219,10 @@ C, C++ 혹은 Objective-C를 사용해 보신 분이라면 이 참조라는 것�
 
 위에 기술된 경우를 제외한 다른 모든 경우에는 구조체가 아니라 클래스를 사용하면 됩니다.
 
-### String, Array, Dictionary의 할당과 복사 동작 \(Assignment and Copy Behavior for Strings, Arrays, and Dictionaries\)
+## String, Array, Dictionary의 할당과 복사 동작 \(Assignment and Copy Behavior for Strings, Arrays, and Dictionaries\)
 
 Swift에서는 `String`, `Array`, `Dictionary` 같은 기본 데이터 타입이 구조체로 구현 돼 있습니다. 그렇다는 의미는 이 값을 다른 상수나 변수에 할당하거나 함수나 메소드에 인자로 넘길 때 이 값이 복사 된다는 것입니다. 반면 `Foundation`의 `NSString`, `NSArray`, `NSDictionary`는 클래스로 구현 돼 있습니다. 그래서 이 데이터들은 항상 할당 되거나 전달될 때 복사 되지 않고 참조가 사용됩니다.
 
-> NOTE   
+> NOTE  
 > 위에서 `String`, `Array`, `Dictionary` 는 할당되거나 전달될 때 복사된다고 설명했습니다. 하지만 실제로 Swift에서는 최적의 성능을 위해 실제 필요할 때만 데이터가 복사됩니다.
 

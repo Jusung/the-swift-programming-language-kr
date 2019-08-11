@@ -2,19 +2,19 @@
 
 Swift에서는 주된 콜렉션 타입으로 배열, 셋, 사전 세 가지를 지원합니다.
 
-![](.gitbook/assets/89c45f54-9bef-4e9b-b164-0776eb90b991.png)
+![](../.gitbook/assets/89c45f54-9bef-4e9b-b164-0776eb90b991.png)
 
-### 콜렉션의 변경
+## 콜렉션의 변경
 
 배열, 셋, 사전을 변수\(var\)에 할당하면 이 콜렉션은 변경가능하고 상수\(let\)에 할당하면 변경 불가능 합니다.
 
-### 배열\(Array\)
+## 배열\(Array\)
 
-#### 배열의 축약형 문법
+### 배열의 축약형 문법
 
 배열 타입은 Array로 적을 수 있는데 축약형으로 \[Element\] 형태로 사용할 수도 있습니다.
 
-#### 빈 배열의 생성
+### 빈 배열의 생성
 
 아래와 같이 Int형 빈 배열을 생성할 수 있습니다.
 
@@ -31,7 +31,7 @@ someInts = []
 // 배열을 비웠습니다. 배열의 아이템 타입은 그대로 Int로 유지됩니다.
 ```
 
-#### 기본 값으로 빈 배열 생성
+### 기본 값으로 빈 배열 생성
 
 repeating 메소드와 count 메소드를 이용해 기본 값으로 빈 배열을 생성할 수 있습니다.
 
@@ -40,7 +40,7 @@ var threeDoubles = Array(repeating: 0.0, count: 3)
 // threeDoubles : Double 타입의 [0.0, 0.0, 0.0]
 ```
 
-#### 다른 배열을 추가한 배열의 생성
+### 다른 배열을 추가한 배열의 생성
 
 “+” 연산자를 이용해 배열을 합칠 수 있습니다.
 
@@ -52,7 +52,7 @@ var sixDoubles = threeDoubles + anotherThreeDoubles
 // sixDoubles : [0.0, 0.0, 0.0, 2.5, 2.5, 2.5]
 ```
 
-#### 리터럴을 이용한 배열의 샌성
+### 리터럴을 이용한 배열의 샌성
 
 \[value 1, value 2, value 3\] 형태를 이용해 배열을 생성할 수 있습니다.
 
@@ -66,7 +66,7 @@ var shoppingList: [String] = ["Eggs", "Milk"]
 var shoppingList = ["Eggs", "Milk"]
 ```
 
-#### 배열의 접근 및 변환
+### 배열의 접근 및 변환
 
 ```swift
 print("The shopping list contains \(shoppingList.count) items.")
@@ -124,7 +124,7 @@ firstItem = shoppingList[0]
 let apples = shoppingList.removeLast()
 ```
 
-#### 배열의 순회
+### 배열의 순회
 
 for-in loop을 이용해 배열을 순회할 수 있습니다.
 
@@ -152,11 +152,11 @@ for (index, value) in shoppingList.enumerated() {
 // Item 5: Bananas
 ```
 
-### 셋\(Set\)
+## 셋\(Set\)
 
 Set 형태로 저장되기 위해서는 반드시 타입이 hashable이어야만 합니다. Swift에서 String, Int, Double, Bool 같은 기본 타입은 기본적으로 hashable입니다. Swift에서 Set 타입은 Set로 선언합니다.
 
-#### 빈 Set 생성
+### 빈 Set 생성
 
 ```swift
 var letters = Set<Character>()
@@ -169,7 +169,7 @@ letters.insert("a")
 letters = []
 ```
 
-#### 배열 리터럴을 이용한 Set 생성
+### 배열 리터럴을 이용한 Set 생성
 
 ```swift
 var favoriteGenres: Set<String> = ["Rock", "Classical", "Hip hop"]
@@ -181,7 +181,7 @@ Swift의 타입추론으로 아래와 같이 선언도 가능합니다.
 var favoriteGenres: Set = ["Rock", "Classical", "Hip hop"]
 ```
 
-#### Set의 접근과 변경
+### Set의 접근과 변경
 
 ```swift
 print("I have \(favoriteGenres.count) favorite music genres.")
@@ -227,7 +227,7 @@ if favoriteGenres.contains("Funk") {
 // It's too funky in here.
 ```
 
-#### Set의 순회
+### Set의 순회
 
 for-in loop을 이용해 set을 순회할 수 있습니다.
 
@@ -240,9 +240,9 @@ for genre in favoriteGenres {
 // Jazz
 ```
 
-#### Set 명령
+### Set 명령
 
-![](.gitbook/assets/c7eea172-39ef-49ba-876d-cd2a72d5e2dc.png)
+![](../.gitbook/assets/c7eea172-39ef-49ba-876d-cd2a72d5e2dc.png)
 
 ```swift
 let oddDigits: Set = [1, 3, 5, 7, 9]
@@ -259,11 +259,11 @@ oddDigits.symmetricDifference(singleDigitPrimeNumbers).sorted()
 // [1, 2, 9]
 ```
 
-#### Set의 맴버십과 동등 비교
+### Set의 맴버십과 동등 비교
 
 Set의 동등비교와 맴버 여부를 확인하기 위해 각각 == 연산자와 isSuperset\(of:\), isStrictSubset\(of:\), isStrictSuperset\(of:\), isDisjoint\(with:\) 메소드를 사용한다.
 
-![](.gitbook/assets/56c640e4-4550-4977-87c3-4c242f03d678.png)
+![](../.gitbook/assets/56c640e4-4550-4977-87c3-4c242f03d678.png)
 
 isDisjoint\(with:\)는 둘간의 공통값이 없는 경우에 참을 반환 합니다.
 
@@ -280,15 +280,15 @@ farmAnimals.isDisjoint(with: cityAnimals)
 // 참
 ```
 
-### 사전\(Dictionaries\)
+## 사전\(Dictionaries\)
 
 > Swift의 Dictionary타입은 Foundation 클래스의 NSDictionary를 bridge한 타입입니다.
 
-#### 축약형 Dictionary
+### 축약형 Dictionary
 
 \[Key: Value\] 형태로 Dictionary를 선언해 사용할 수 있습니다.
 
-#### 빈 Dictionary의 생성
+### 빈 Dictionary의 생성
 
 ```swift
 var namesOfIntegers = [Int: String]()
@@ -300,7 +300,7 @@ namesOfIntegers = [:]
 // 빈 사전
 ```
 
-#### 리터럴를 이용한 Dictionary의 생성
+### 리터럴를 이용한 Dictionary의 생성
 
 \[key 1: value 1, key 2: value 2, key 3: value 3\] 형태로 사전 선언 가능
 
@@ -308,7 +308,7 @@ namesOfIntegers = [:]
 var airports: [String: String] = = ["YYZ": "Toronto Pearson", "DUB": "Dublin"]
 ```
 
-#### Dictionary의 접근과 변경
+### Dictionary의 접근과 변경
 
 ```swift
 print("The airports dictionary contains \(airports.count) items.")

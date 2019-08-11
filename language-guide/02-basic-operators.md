@@ -2,7 +2,7 @@
 
 Swift에서는 통상적으로 이용하는 +, -, /, % 같은 산술연산자와 &&, \|\| 같은 논리 연산자, 그리고 C에서 지원하지 않는 a..&lt;b 나 a…b같은 값의 범위를 지정할 수 있는 범위 연산자를 지원합니다.
 
-### 용어\(Terminology\)
+## 용어\(Terminology\)
 
 연산자에는 단항\(unary\), 이항\(binary\) 그리고 삼항\(ternary\) 연산자가 있습니다.
 
@@ -10,7 +10,7 @@ Swift에서는 통상적으로 이용하는 +, -, /, % 같은 산술연산자와
 * 이항 연산자는 2 + 3 같이 두 대상 사이에 위치하는 연산자입니다.
 * 삼항 연산자는 a ? b : c 형태로 Swift에서 삼항 연산자는 이것 단 하나만 존재합니다.
 
-### 할당 연산자\(Assignment Operator\)
+## 할당 연산자\(Assignment Operator\)
 
 할당 연산자 아래와 같이 상수, 변수에 모두 사용 가능합니다.
 
@@ -38,7 +38,7 @@ if x = y {
 
 이유는 동등비교 연산자\(==\)를 사용해야 하는 곳에 할당 연산자\(=\)가 실수로 사용되는 것을 막기 위해서 입니다.
 
-### 사칙 연산자\(Arithmetic Operators\)
+## 사칙 연산자\(Arithmetic Operators\)
 
 Swift는 모든 숫자 형에서 사용 가능한 4가지 표준 사칙 연산자를 지원합니다.
 
@@ -60,7 +60,7 @@ C나 ObjectiveC와 달리 Swift는 사칙 연산의 값이 오버플로우 되�
 "hello, " + "world"  // equals "hello, world"
 ```
 
-#### 나머지 연산자\(Remainder Operator\)
+### 나머지 연산자\(Remainder Operator\)
 
 a % b와 같이 나머지 연산을 지원합니다.
 
@@ -69,9 +69,9 @@ a % b와 같이 나머지 연산을 지원합니다.
 -9 % 4   // -1
 ```
 
-![](.gitbook/assets/remainderinteger_2x.png)
+![](../.gitbook/assets/remainderinteger_2x.png)
 
-#### 단항 음수 연산자\(Unary Minus Operator\)
+### 단항 음수 연산자\(Unary Minus Operator\)
 
 숫자 값은 `-` 로 표현되는 단항 음수 연산자에 의해 부호가 변합니다.
 
@@ -81,7 +81,7 @@ let minusThree = -three       // minusThree는 -3
 let plusThree = -minusThree   // plusThree는 3, 혹은 "minus minus 3"
 ```
 
-#### 단항 양수 연산자\(Unary Plus Operator\)
+### 단항 양수 연산자\(Unary Plus Operator\)
 
 `+`로 표현되는 단항 양수 연산자는 부호에 아무런 영향을 끼치지 않습니다.
 
@@ -90,7 +90,7 @@ let minusSix = -6
 let alsoMinusSix = +minusSix  // alsoMinusSix는 -6
 ```
 
-### 합성 할당 연산자 \(Compound Assignment Operators\)
+## 합성 할당 연산자 \(Compound Assignment Operators\)
 
 a = a + 2와 같이 할당 연산\(=\)과 덧셈\(+\) 연산으로 구성된 연산을 합성해 +=형태로 축약해 사용 가능 합니다.
 
@@ -103,7 +103,7 @@ a += 2
 > 합성 할당 연산자는 값을 반환하지 않습니다. 즉, `let b = a+=2` 와 같은 문법은 사용할 수 없습니다.  
 > 더 많은 정보는 **연산자 선언\(Operator Declarations\)** 에서 확인할 수 있습니다.
 
-### 비교 연산자\(Comparison Operators\)
+## 비교 연산자\(Comparison Operators\)
 
 Swift에서는 표준 C에서 제공하는 비교연산자 모두를 지원합니다.
 
@@ -160,7 +160,7 @@ if문과 관련한 더 많은 정보는 **제어문**에서 확인할 수 있습
 
 > Swift 표준 라이브러리에서는 7개 요소 미만을 갖는 튜플만 비교할 수 있습니다. 만약 7개 혹은 그 이상의 요소를 갖는 튜플을 비교하고 싶으면 직접 비교 연산자를 구현해야 합니다.
 
-### 삼항 조건 연산자\(Ternary Conditional Operator\)
+## 삼항 조건 연산자\(Ternary Conditional Operator\)
 
 삼항 조건 연산자는 `question ? answer1 : answer2`의 구조를 갖습니다. 그래서 question 조건이 참인경우 answer1이 거짓인 경우 answer2가 실행됩니다. 삼항 조건 연산자는 아래 코드의 축약입니다.
 
@@ -197,7 +197,7 @@ if hasHeader {
 
 삼항 조건 연산자는 코드를 짧게 만들어 가독성을 높여줍니다.
 
-### Nil 병합 연산자\(Nil-Coalescing Operator\)
+## Nil 병합 연산자\(Nil-Coalescing Operator\)
 
 nil 병합 연산자는 a ?? b 형태를 갖는 연산자 입니다. 옵셔널 a를 벗겨서\(unwraps\) 만약 a가 nil 인 경우 b를 반환합니다. 이 nil 병합 연산자는 다음 코드의 축약형입니다.
 
@@ -223,9 +223,9 @@ colorNameToUse = userDefinedColorName ?? defaultColorName
 // userDefinedColorName가 nil이 아니므로 colorNameToUse 는 "green"이 됩니다.
 ```
 
-### 범위 연산자\(Range Operators\)
+## 범위 연산자\(Range Operators\)
 
-#### 닫힌 범위 연산자\(Closed Range Operator\)
+### 닫힌 범위 연산자\(Closed Range Operator\)
 
 \(a..b\)의 형태로 범위의 시작과 끝이 있는 연산자 입니다. for-in loop에 자주 사용됩니다.
 
@@ -242,7 +242,7 @@ for index in 1...5 {
 
 for-in loop에 관한 더 많은 정보는 **제어문**에서 보실 수 있습니다.
 
-#### 반 닫힌 범위 연산자\(Half-Open Range Operator\)
+### 반 닫힌 범위 연산자\(Half-Open Range Operator\)
 
 \(a..&lt;b\)의 형태로 a부터 b보다 작을 때까지의 범위를 갖습니다. 즉, a부터 b-1까지 값을 갖습니다. 이건 어디서 많이 본 범위! 그렇습니다. 보통 배열이 배열의 크기 - 1의 인덱스를 갖기 때문에 이 반 닫힌 범위 연산자는 배열을 다루는데 유용합니다. 다음은 그 예입니다.
 
@@ -258,7 +258,7 @@ for i in 0..<count {
 // Person 4 is called Jack
 ```
 
-#### 단방향 범위\(One-Side Ranges\)
+### 단방향 범위\(One-Side Ranges\)
 
 \[a..\] \[..a\]의 형태로 범위의 시작 혹은 끝만 지정해 사용하는 범위 연산자 입니다. 지정한 시작 값 혹은 끝 값은 범위에 포함됩니다. 다음은 관련 예제 입니다.
 
@@ -296,7 +296,7 @@ range.contains(4)   // true
 range.contains(-1)  // true
 ```
 
-### 논리 연산자\(Logical Operators\)
+## 논리 연산자\(Logical Operators\)
 
 Swift에서는 세가지 표준 논리 연산자를 지원합니다.
 
@@ -304,7 +304,7 @@ Swift에서는 세가지 표준 논리 연산자를 지원합니다.
 * 논리 곱 AND \(a && b\)
 * 논리 합 OR \(a \|\| b\)
 
-#### 논리 부정 연산자\(Logical NOT Operator\)
+### 논리 부정 연산자\(Logical NOT Operator\)
 
 ```swift
 let allowedEntry = false
@@ -314,7 +314,7 @@ if !allowedEntry {
 // Prints "ACCESS DENIED"
 ```
 
-#### 논리 곱 연산자\(Logical AND Operator\)
+### 논리 곱 연산자\(Logical AND Operator\)
 
 ```swift
 let enteredDoorCode = true
@@ -327,7 +327,7 @@ if enteredDoorCode && passedRetinaScan {
 // Prints "ACCESS DENIED"
 ```
 
-#### 논리 합\(OR\) 연산자\(Logical OR Operator\)
+### 논리 합\(OR\) 연산자\(Logical OR Operator\)
 
 ```swift
 let hasDoorKey = false
@@ -340,7 +340,7 @@ if hasDoorKey || knowsOverridePassword {
 // Prints "Welcome!"
 ```
 
-#### 논리 연산자의 조합\(Combining Logical Operators\)
+### 논리 연산자의 조합\(Combining Logical Operators\)
 
 두 개 이상의 논리 연산자를 조합해서 사용할 수 있습니다.
 
@@ -355,7 +355,7 @@ if enteredDoorCode && passedRetinaScan || hasDoorKey || knowsOverridePassword {
 
 > Swift의 논리 연산자 && 와 \|\| 는 왼쪽의 표현을 우선해서 논리 계산을 합니다.
 
-#### 명시적 괄호\(Explicit Parentheses\)
+### 명시적 괄호\(Explicit Parentheses\)
 
 논리 적용 우선 순위를 연산자에 맡지기 않고 명시적으로 괄호를 사용해서 논리 계산 순서를 명시적으로 지정할 수 있습니다.
 

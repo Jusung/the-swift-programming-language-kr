@@ -1,25 +1,25 @@
 # 고급 연산자 \(Advanced Operators\)
 
-### 비트 연산자 \(Bitwise Operators\)
+## 비트 연산자 \(Bitwise Operators\)
 
 Swift에서도 여러 비트 연산자를 지원합니다.
 
-#### 비트 연산자 NOT \(Bitwise NOT Operator\)
+### 비트 연산자 NOT \(Bitwise NOT Operator\)
 
 비트 연산자 NOT은 비트를 뒤집습니다.
 
-![](.gitbook/assets/bitwisenot_2x.png)
+![](../.gitbook/assets/bitwisenot_2x.png)
 
 ```swift
 let initialBits: UInt8 = 0b00001111
 let invertedBits = ~initialBits  // equals 11110000
 ```
 
-#### 비트 연산자 AND \(Bitwise AND Operator\)
+### 비트 연산자 AND \(Bitwise AND Operator\)
 
 비트 연산자 AND는 두 비트가 같은 값인 경우 1 다른경우 0으로 변환합니다.
 
-![](.gitbook/assets/bitwiseand_2x.png)
+![](../.gitbook/assets/bitwiseand_2x.png)
 
 ```swift
 let firstSixBits: UInt8 = 0b11111100
@@ -27,11 +27,11 @@ let lastSixBits: UInt8  = 0b00111111
 let middleFourBits = firstSixBits & lastSixBits  // equals 00111100
 ```
 
-#### 비트 연산자 OR \(Bitwise OR Operator\)
+### 비트 연산자 OR \(Bitwise OR Operator\)
 
-비트 연산자 OR는 두 비트중 하나라도 1이면 1 값을 갖습니다. 
+비트 연산자 OR는 두 비트중 하나라도 1이면 1 값을 갖습니다.
 
-![](.gitbook/assets/bitwiseor_2x.png)
+![](../.gitbook/assets/bitwiseor_2x.png)
 
 ```swift
 let someBits: UInt8 = 0b10110010
@@ -39,11 +39,11 @@ let moreBits: UInt8 = 0b01011110
 let combinedbits = someBits | moreBits  // equals 11111110
 ```
 
-#### 비트 연산자 XOR \(Bitwise XOR Operator\)
+### 비트 연산자 XOR \(Bitwise XOR Operator\)
 
 비트 연산자 XOR은 두 비트가 다른 경우에 1, 같은 경우에 0을 갖습니다.
 
-![](.gitbook/assets/bitwisexor_2x.png)
+![](../.gitbook/assets/bitwisexor_2x.png)
 
 ```swift
 let firstBits: UInt8 = 0b00010100
@@ -51,13 +51,13 @@ let otherBits: UInt8 = 0b00000101
 let outputBits = firstBits ^ otherBits  // equals 00010001
 ```
 
-#### 비트 시프트 연산자 \(Bitwise Left and Right Shift Operators\)
+### 비트 시프트 연산자 \(Bitwise Left and Right Shift Operators\)
 
 비트를 왼쪽 혹은 오른쪽으로 미는 시프트 연산자도 지원합니다.
 
-### 부호없는 Integer의 시프팅 \(Shifting Behavior for Unsigned Integers\)
+## 부호없는 Integer의 시프팅 \(Shifting Behavior for Unsigned Integers\)
 
-![](.gitbook/assets/bitshiftunsigned_2x.png)
+![](../.gitbook/assets/bitshiftunsigned_2x.png)
 
 ```swift
 let shiftBits: UInt8 = 4   // 00000100 in binary
@@ -77,21 +77,21 @@ let greenComponent = (pink & 0x00FF00) >> 8   // greenComponent is 0x66, or 102
 let blueComponent = pink & 0x0000FF           // blueComponent is 0x99, or 153
 ```
 
-### 부호있는 Integer의 시프팅 \(Shifting Behavior for Signed Integers\)
+## 부호있는 Integer의 시프팅 \(Shifting Behavior for Signed Integers\)
 
-부호가 있는 정수형에서는 최상단의 비트가 부호를 표현합니다. 0일때는 양수 1일때는 음수를 의미합니다. 연산의 결과는 각각 다음 그림과 같습니다. 
+부호가 있는 정수형에서는 최상단의 비트가 부호를 표현합니다. 0일때는 양수 1일때는 음수를 의미합니다. 연산의 결과는 각각 다음 그림과 같습니다.
 
-![](.gitbook/assets/bitshiftsignedfour_2x.png)
+![](../.gitbook/assets/bitshiftsignedfour_2x.png)
 
-![](.gitbook/assets/bitshiftsignedminusfour_2x.png)
+![](../.gitbook/assets/bitshiftsignedminusfour_2x.png)
 
-![](.gitbook/assets/bitshiftsignedminusfourvalue_2x.png)
+![](../.gitbook/assets/bitshiftsignedminusfourvalue_2x.png)
 
-![](.gitbook/assets/bitshiftsignedaddition_2x.png)
+![](../.gitbook/assets/bitshiftsignedaddition_2x.png)
 
-![](.gitbook/assets/bitshiftsigned_2x.png)
+![](../.gitbook/assets/bitshiftsigned_2x.png)
 
-### 오버플로우 연산자 \(Overflow Operators\)
+## 오버플로우 연산자 \(Overflow Operators\)
 
 Int16의 값은 범위는 -32768~32767 값을 갖습니다. Int16의 최대값인 Int16.max에 값을 하나 더하면 Int16이 저장할 수 있는 값의 범위를 벗어나므로 에러가 발생합니다.
 
@@ -108,21 +108,20 @@ potentialOverflow += 1
 * 오버플로우 뺄셈 \(&-\)
 * 오버플로우 곱셈 \(&\*\)  
 
+**값 오버플로우 \(Value Overflow\)**
 
-  **값 오버플로우 \(Value Overflow\)**
+값은 양수쪽 혹은 음수쪽 양쪽으로 넘칠 수 있습니다.
 
-  값은 양수쪽 혹은 음수쪽 양쪽으로 넘칠 수 있습니다. 
-
-  ```swift
+```swift
   var unsignedOverflow = UInt8.max
   // unsignedOverflow equals 255, which is the maximum value a UInt8 can hold
   unsignedOverflow = unsignedOverflow &+ 1
   // unsignedOverflow is now equal to 0
-  ```
+```
 
-  여기서 오버플로우 덧셈을 하면 그결과는 다음과 같이 값이 초기화 됩니다.
+여기서 오버플로우 덧셈을 하면 그결과는 다음과 같이 값이 초기화 됩니다.
 
-![](.gitbook/assets/overflowaddition_2x.png)
+![](../.gitbook/assets/overflowaddition_2x.png)
 
 * 만약 오버플로우 뺄셈을 하면 최대 값을 같습니다.
 
@@ -133,7 +132,7 @@ potentialOverflow += 1
   // unsignedOverflow is now equal to 255
   ```
 
-![](.gitbook/assets/overflowunsignedsubtraction_2x.png)
+![](../.gitbook/assets/overflowunsignedsubtraction_2x.png)
 
 만약 부호를 갖는 Int형의 경우 오버플로우 뺄셈 연산을 하면 결과는 다음과 같습니다.
 
@@ -144,7 +143,7 @@ signedOverflow = signedOverflow &- 1
 // signedOverflow is now equal to 127
 ```
 
-![](.gitbook/assets/overflowsignedsubtraction_2x.png)
+![](../.gitbook/assets/overflowsignedsubtraction_2x.png)
 
 **연산자 수행의 우선순위 \(Precedence and Associativity\)**
 
@@ -190,9 +189,9 @@ let combinedVector = vector + anotherVector
 
 vector + anotherVector를 수행하면 +메소드가 수행되 두 2차원 좌표의 x, y 값을 각각 더합니다.
 
-![](.gitbook/assets/vectoraddition_2x.png)
+![](../.gitbook/assets/vectoraddition_2x.png)
 
-#### 접두, 접미 연산자 \(Prefix and Postfix Operators\)
+### 접두, 접미 연산자 \(Prefix and Postfix Operators\)
 
 어떤 피 연산자 앞에 붙이는 접두 연산자를 정의 할 수 있습니다. 아래와 같이 -를 붙이면 이후 값을 음수로 변환하도록 함수를 정의합니다.
 
@@ -214,7 +213,7 @@ let alsoPositive = -negative
 // alsoPositive is a Vector2D instance with values of (3.0, 4.0)
 ```
 
-#### 할당 연산자의 합성 \(Compound Assignment Operators\)
+### 할당 연산자의 합성 \(Compound Assignment Operators\)
 
 할당 연산자를 오버라이딩 할 수 있습니다. 아래는 `+=`연산자를 재정의 한 예 입니다. 좌변은 in-out 파라미터로 좌변에 좌변과 우변을 더한 값을 할당합니다.
 
@@ -235,10 +234,10 @@ original += vectorToAdd
 // original now has values of (4.0, 6.0)
 ```
 
-> NOTE   
+> NOTE  
 > 할당 연산자중 기본 할당연산자 `=` 는 오버로딩 할 수 없습니다. 삼중 조건 연산자인 `a ? b : c` 또한 오버로딩 할 수 없습니다.
 
-#### 등위 연산자 \(Equivalence Operators\)
+### 등위 연산자 \(Equivalence Operators\)
 
 두 값 혹은 객체를 비교하는 등위 연산자 `==`를 오버라이딩 할 수 있습니다. 다음은 2차원 좌표의 등위를 비교하는 `==` 연산자를 오버라이딩 한 예입니다.
 
@@ -282,7 +281,7 @@ if twoThreeFour == anotherTwoThreeFour {
 // Prints "These two vectors are also equivalent."
 ```
 
-### 커스텀 연산자 \(Custom Operators\)
+## 커스텀 연산자 \(Custom Operators\)
 
 기본 연산자에는 커스텀 전위 연산자 +++를 정의해 사용할 수 있습니다.
 
@@ -308,7 +307,7 @@ let afterDoubling = +++toBeDoubled
 
 정의 한대로 `+++`연산자가 동작하는 것을 확인할 수 있습니다.
 
-#### 중위 연산자의 수행 \(Precedence for Custom Infix Operators\)
+### 중위 연산자의 수행 \(Precedence for Custom Infix Operators\)
 
 다음과 같이 두 피연산자 사이에 존재하는 중위 연산자를 정의해 사용할 수 있습니다. x 값은 더하고 y 값은 서로 빼는 연산으로 정의한 예는 다음과 같습니다.
 
