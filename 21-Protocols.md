@@ -214,7 +214,7 @@ class SomeSubClass: SomeSuperClass, SomeProtocol {
 * 컨테이너인 배열, 사전 등의 아이템 타입
 
 > NOTE   
-> 프로토콜을 타입이기 때문에 위 예제의 FullyNamed, RandomNumberGenerator와 같이 첫 글자를 대문자로 적어줍니다.
+> 프로토콜은 타입이기 때문에 위 예제의 FullyNamed, RandomNumberGenerator와 같이 첫 글자를 대문자로 적어줍니다.
 
 다음은 프로토콜을 타입으로 사용한 예입니다.
 
@@ -780,3 +780,4 @@ print(differentNumbers.allEqual())
 
 
 
+

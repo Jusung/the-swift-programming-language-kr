@@ -51,7 +51,7 @@ struct Resolution {
     var height = 0
 }
 class VideoMode {
-    var resolution = Resolution()  // 위 Resulution 구조체를 값으로 사용
+    var resolution = Resolution()  // 위 Resolution 구조체를 값으로 사용
     var interlaced = false
     var frameRate = 0.0
     var name: String?
@@ -210,10 +210,10 @@ C, C++ 혹은 Objective-C를 사용해 보신 분이라면 이 참조라는 것�
 
 일반적으로 다음의 조건 중 1개 이상을 만족하면 구조체를 사용하는 것을 고려해 볼 수 있습니다.
 
-* 구조의 주 목적이 관계된 간단한 값을 캡슐화\(encapsulate\) 하기 위한 것인 경우
-* 구조의 인스턴스가 참조되기 보다 복사되기를 기대하는 경우
-* 구조에 의해 저장된 어떠한 프로퍼티가 참조되기 보다 복사되기를 기대하는 경우
-* 구조가 프로퍼티나 메소드 등을 상속할 필요가 없는 경우
+* 구조체의 주 목적이 관계된 간단한 값을 캡슐화\(encapsulate\) 하기 위한 것인 경우
+* 구조체의 인스턴스가 참조되기 보다 복사되기를 기대하는 경우
+* 구조체에 의해 저장된 어떠한 프로퍼티가 참조되기 보다 복사되기를 기대하는 경우
+* 구조체가 프로퍼티나 메소드 등을 상속할 필요가 없는 경우
 
 실 “예”를 들면 다음과 같습니다. `double`형을 갖는 `width` 와 `height`를 캡슐화해 특정 지형의 크기로 사용하는 경우 `Int`형을 갖는 `start`와 `length`를 캡슐화해 특정 값의 범위를 나타내는 경우 `Double`형으로 구성된 x, y, z를 캡슐화 해 3D 좌표 시스템의 point로 사용하는 경우
 

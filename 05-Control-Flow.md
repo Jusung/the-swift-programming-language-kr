@@ -268,7 +268,7 @@ default:
 
 #### 인터벌 매칭 \(Interval Matching\)
 
-숫자의 특정 점위를 조건으로 사용할 수 있습니다.
+숫자의 특정 범위를 조건으로 사용할 수 있습니다.
 
 ```swift
 let approximateCount = 62

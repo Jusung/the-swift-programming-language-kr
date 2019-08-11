@@ -66,7 +66,7 @@ It also ends with a line break.
 * \u{n}, n은 1-8자리 십진수 형태로 구성된 유니코드
 
   ```swift
-  let wiseWords "\"Imagination is more importan than knowledge"\ - Einstein"
+  let wiseWords = "\"Imagination is more important than knowledge\" - Einstein"
   // "Imagination is more important than knowlege" - Einstein
   let dollaSign = "\u{24}"            // $, 유니코트 U+0024
   let blackHeart = "\u{2665}"         // ♥, 유니코드 U+2665
@@ -288,7 +288,7 @@ welcome.removeSubrange(range)
 문자열에서 부분적으로 문자를 얻기 위해 prefix \(\_:\)와 같은 서브스크립트 메소드를 이용할 수 있는데, 그렇게 얻은 부분 문자열은 **문자열\(String\) 인스턴스가 아니라 부분 문자열\(SubString\) 인스턴스** 입니다. 만약 부분 문자열을 단기간에 사용하는게 아니라 오랜기간 사용한다면 문자열 인스턴스로 바꿔서 사용하는게 좋습니다.
 
 ```swift
-let greeting = "Hello World!"
+let greeting = "Hello, World!"
 let index = greeting.index(of: ",") ?? greeting.endIndex
 let beginning = greeting[..<index]
 // beginning : Hello
@@ -338,17 +338,18 @@ if eAcuteQuestion == combinedEAcuteQuestion {
 같은 유니코드 문자여도 유니코드가 다르면 다른 문자로 판별합니다. 아래 예제는 영어의 알파벳 대문자 A\(U+0041\)와 러시아어에서 사용되는 대문자 A\(U+0410\)를 비교한 것입니다.
 
 ```swift
-// "Voulez-vous un café?" using LATIN SMALL LETTER E WITH ACUTE
-let eAcuteQuestion = "Voulez-vous un caf\u{E9}?"
+let latinCapitalLetterA: Character = "\u{41}"
 
-// "Voulez-vous un café?" using LATIN SMALL LETTER E and COMBINING ACUTE ACCENT
-let combinedEAcuteQuestion = "Voulez-vous un caf\u{65}\u{301}?"
+let cyrillicCapitalLetterA: Character = "\u{0410}"
 
-if eAcuteQuestion == combinedEAcuteQuestion {
-    print("These two strings are considered equal")
+if latinCapitalLetterA != cyrillicCapitalLetterA {
+    print("These two characters are not equivalent.")
 }
-// These two strings are considered equal
+// Prints "These two characters are not equivalent."
 ```
+
+> Note
+> Swift에서 문자열과 문자의 비교는 언어를 고려하지 않습니다. 다시말해, 언어와 상관없이 같은 문자면 같은 문자로 취급합니다.
 
 #### 접두사와 접미사 비교
 

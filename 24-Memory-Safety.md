@@ -81,7 +81,7 @@ stepSize = copyOfStepSize
 // stepSize is now 2
 ```
 
-또 다른 in-out 파라미터의 장기 접근\(long-term\)으로 인한 충돌을 다음과 같은 상황에서 일어날 수 있습니다. balance라는 함수에 inout 파라미터 2개를 입력하는데 그 입력한 파라미터를 갖고 읽고 쓰는 것과 관련한 연한을 합니다.
+또 다른 in-out 파라미터의 장기 접근\(long-term\)으로 인한 충돌은 다음과 같은 상황에서 일어날 수 있습니다. balance라는 함수에 inout 파라미터 2개를 입력하는데 그 입력한 파라미터를 갖고 읽고 쓰는 것과 관련한 연산을 합니다.
 
 ```swift
 func balance(_ x: inout Int, _ y: inout Int) {
@@ -99,7 +99,7 @@ balance(&playerOneScore, &playerOneScore)
 이 경우 `balance(&playerOneScore, &playerOneScore)`와 같이 인자를 넣으면 읽기와 쓰기를 동시에 하게 돼서 접근 충돌이 발생합니다.
 
 > NOTE   
-> 함수의 연산자도 함수이기 때문에 in-out파라미터 장기 접근 문제가 발생할 수 있습니다.
+> 연산자도 함수이기 때문에 in-out파라미터 장기 접근 문제가 발생할 수 있습니다.
 
 ### Conflicting Access to self in Methods
 
@@ -157,7 +157,7 @@ balance(&playerInformation.health, &playerInformation.energy)
 // Error: conflicting access to properties of playerInformation
 ```
 
-읽기 쓰기를 동시에 수행하는 balance를 실행할때 충돌 에러가 발생합니다. 아래와 같이 Player의 경우에도 전역변수로 번언돼 있어서 blance 수행시 충돌 에러가 발생합니다.
+읽기 쓰기를 동시에 수행하는 balance를 실행할때 충돌 에러가 발생합니다. 아래와 같이 Player의 경우에도 전역변수로 선언돼 있어서 blance 수행시 충돌 에러가 발생합니다.
 
 ```swift
 var holly = Player(name: "Holly", health: 10, energy: 10)
@@ -177,7 +177,7 @@ func someFunction() {
 
 * 구조체 인스턴스에서 저장프로퍼티에만 접근하고 계산된 프로퍼티 혹은 클래스 프로퍼티를 접근하지 않을 때
 * 구조체가 전역변수가 아니라 지역변수 일때
-* 구조체가 어떤 클로저도 획득\(capturing\)하지 않거나 획은한 캡처가 nonescaping 클로저 일때
+* 구조체가 어떤 클로저로부터도 캡쳐\(capturing\)하지 않거나 nonescaping 클로저에서만 획득된 경우
 
   만약 컴파일러가 접근이 안전하다고 판단하지 못하면 접근이 불가능 합니다.
 

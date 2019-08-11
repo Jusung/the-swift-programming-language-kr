@@ -33,7 +33,7 @@ extension SomeType: SomeProtocol, AnotherProtocol {
 이런 방식으로 프로토콜을 구현하는 것은 Addind Protocol Conformance with an Extension에 설명돼 있습니다. 하나의 익스텐션은 Extending a Generic Type에 설명돼 있는 것처럼 generic 타입으로 확장하는데 사용할 수 있습니다. 또 generic 타입에 조건적으로 기능을 추가 할 수 있는 것은 Extensions with a Generic Where clause에 설명돼 있습니다.
 
 > NOTE   
-> 익스텐션의 현재 존재하는 타입보다 나중에 작성됐어도 존재하는 타입의 모든 타입의 인스턴스에서 사용 가능합니다.
+> 익스텐션을 정의하여 존재하는 타입에 새 기능을 추가하면, 그 기능은 익스텐션을 정의하기 이전에 생성한 인스턴스를 포함한 존재하는 모든 해당 타입의 인스턴스에서 사용 가능합니다.
 
 ### 계산된 프로퍼티 \(Computed Properties\)
 
@@ -198,11 +198,11 @@ extension Int {
 // returns 7
 ```
 
-만약 Int값에서 요청한 값이 처리할 수 있는 자릿 수를 넘거가면 서브스크립트 구현에서 0을 반환합니다.
+만약 Int값에서 요청한 값이 처리할 수 있는 자릿 수를 넘어가면 서브스크립트 구현에서 0을 반환합니다.
 
 ```swift
 746381295[9]
-// 9로 처리할 수 있는 자릿 수를 넘거아면 0을 반환
+// 9로 처리할 수 있는 자릿 수를 넘어가면 0을 반환
 0746381295[9]
 ```
 
