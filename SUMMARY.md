@@ -32,8 +32,8 @@
 
 ## 연락처 및 도움을 주신 분들 <a id="revision-history"></a>
 
-* [연락처](revision-history/undefined-1.md)
-* [번역에 도움을 주신 분들](revision-history/undefined.md)
+* [연락처](revision-history/contacts.md)
+* [번역에 도움을 주신 분들](revision-history/contributors.md)
 
 ## REVISION HISTORY <a id="revision-history-1"></a>
 
