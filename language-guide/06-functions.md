@@ -2,7 +2,7 @@
 
 ## **정의와 호출 \(Defining and Calling Functions\)**
 
-함수를 선언할 때는 가장 앞에 `func` 키워드를 붙이고 `(person: String)` 파라미터와 형 그리고 `-> String` 형태로 반환 형을 정의합니다.
+함수를 선언할 때는 가장 앞에 `func` 키워드를 붙이고 `(person: String)` 파라미터와 형 그리고 `-> String` 형태로 반환형을 정의합니다.
 
 ```swift
 func greet(person: String) -> String {
@@ -66,8 +66,8 @@ greet(person: "Dave")
 // Prints "Hello, Dave!"
 ```
 
-> NOTE  
-> 엄밀히 말하면 위 함수는 반환 값을 선언하지 않았지만 반환 값이 있습니다. 반환 값이 정의 되지 않은 함수는 Void라는 특별한 형을 반환합니다. Void는 간단히 \(\)로 쓰인 빈 튜플입니다.
+> _주의_  
+> 엄밀히 말하면 위 함수는 반환 값을 선언하지 않았지만 반환 값이 있습니다. 반환 값이 정의 되지 않은 함수는 Void라는 특별한 형을 반환합니다. Void는 간단히 \(\)를 사용한 빈 튜플입니다.
 
 함수의 반환 값은 아래와 같이 호출 될때 무시될 수 있습니다.
 
@@ -114,7 +114,7 @@ print("min is \(bounds.min) and max is \(bounds.max)")
 
 ### 옵셔널 튜플 반환형 \(Optional Tuple Return Types\)
 
-위의 반환값과 달리 반환값에 `?` 물음표가 붙었습니다. `(min: Int, max: Int)?`
+위의 반환 값과 달리 반환 값에 `?` 물음표가 붙었습니다. `(min: Int, max: Int)?`
 
 ```swift
 func minMax(array: [Int]) -> (min: Int, max: Int)? {
@@ -132,7 +132,7 @@ func minMax(array: [Int]) -> (min: Int, max: Int)? {
 }
 ```
 
-실제 반환 값을 접근하기 위해서는 `if let`과 같은 옵셔널 체인을 사용하거나 강제 unwrapping을 해야 합니다. 아래는 옵셔널 체인을 사용한 \(예\)입니다.
+실제 반환 값에 접근하기 위해서는 `if let`과 같은 옵셔널 체인을 사용하거나 강제 unwrapping을 해야 합니다. 아래는 옵셔널 체인을 사용한 \(예\)입니다.
 
 ```swift
 if let bounds = minMax(array: [8, -6, 2, 109, 3, 71]) {
@@ -147,8 +147,7 @@ if let bounds = minMax(array: [8, -6, 2, 109, 3, 71]) {
 
 ```swift
 func someFunction(firstParameterName: Int, secondParameterName: Int) {
-    // In the function body, firstParameterName and secondParameterName
-    // refer to the argument values for the first and second parameters.
+    // 함수 내부에서 firstParameterName와 secondParameterName의 인자를 사용합니다.
 }
 someFunction(firstParameterName: 1, secondParameterName: 2)
 ```
@@ -159,8 +158,7 @@ someFunction(firstParameterName: 1, secondParameterName: 2)
 
 ```swift
 func someFunction(argumentLabel parameterName: Int) {
-    // In the function body, parameterName refers to the argument value
-    // for that parameter.
+    // 함수 안애서 parameterName로 argumentLabel의 인자값을 참조할 수 있습니다.
 }
 ```
 
@@ -180,8 +178,8 @@ print(greet(person: "Bill", from: "Cupertino"))
 
 ```swift
 func someFunction(_ firstParameterName: Int, secondParameterName: Int) {
-    // In the function body, firstParameterName and secondParameterName
-    // refer to the argument values for the first and second parameters.
+    // 함수 안에서 firstParameterName, secondParameterName
+    // 인자로 입력받은 첫번째, 두번째 값을 참조합니다.
 }
 someFunction(1, secondParameterName: 2)
 ```
@@ -192,11 +190,11 @@ someFunction(1, secondParameterName: 2)
 
 ```swift
 func someFunction(parameterWithoutDefault: Int, parameterWithDefault: Int = 12) {
-    // If you omit the second argument when calling this function, then
-    // the value of parameterWithDefault is 12 inside the function body.
+    // 함수 호출시 두번째 인자를 생략하면 함수안에서
+    // parameterWithDefault값은 12가 기본 값으로 사용됩니다.
 }
-someFunction(parameterWithoutDefault: 3, parameterWithDefault: 6) // parameterWithDefault is 6
-someFunction(parameterWithoutDefault: 4) // parameterWithDefault is 12
+someFunction(parameterWithoutDefault: 3, parameterWithDefault: 6) // parameterWithDefault는 6
+someFunction(parameterWithoutDefault: 4) // parameterWithDefault는 12
 ```
 
 ### 집합 파라미터 \(Variadic Parameters\)
@@ -241,12 +239,12 @@ print("someInt is now \(someInt), and anotherInt is now \(anotherInt)")
 
 두 변수의 실제 값이 변경 되었습니다.
 
-> NOTE  
-> 인-아웃 파라미터는 기본 값을 갖을 수 없고, 집합 파라미터는 inout으로 선언될 수 없습니다. 인-아웃 파라미터를 사용하는 것은 함수의 리턴 값을 사용하지 않고 함수 scope 밖에 영향을 줄 수 있는 또 하나의 방법입니다.
+> _주의_  
+> 인-아웃 파라미터는 기본 값을 갖을 수 없고, 집합 파라미터는 `inout`으로 선언될 수 없습니다. 인-아웃 파라미터를 사용하는 것은 함수의 반환 값을 사용하지 않고 함수 scope 밖에 영향을 줄 수 있는 또 하나의 방법입니다.
 
 ## 함수 형 \(Function Types\)
 
-함수의 형은 파라미터 형과\(parameter types\) 반환 형\(return type\)으로 구성 돼 있습니다. 아래 두 함수는 Int값 두 개를 입력받고 Int를 반환하는 함수입니다.
+함수의 형은 파라미터 형과\(parameter types\) 반환 형\(return type\)으로 구성 돼 있습니다. 아래 두 함수는 `Int`값 두 개를 입력받고 `Int`를 반환하는 함수입니다.
 
 ```swift
 func addTwoInts(_ a: Int, _ b: Int) -> Int {
@@ -364,7 +362,7 @@ func chooseStepFunction(backward: Bool) -> (Int) -> Int {
 }
 var currentValue = -4
 let moveNearerToZero = chooseStepFunction(backward: currentValue > 0)
-// moveNearerToZero now refers to the nested stepForward() function
+// moveNearerToZero는 이제 중첩 돼 있는 stepForward() 함수를 가르킵니다.
 while currentValue != 0 {
     print("\(currentValue)... ")
     currentValue = moveNearerToZero(currentValue)

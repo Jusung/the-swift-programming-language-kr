@@ -1,6 +1,6 @@
 # 콜렉션 타입 \(Collection Types\)
 
-Swift에서는 주된 콜렉션 타입으로 배열, 셋, 사전 세 가지를 지원합니다.
+Swift에서는 콜렉션 타입으로 배열, 셋, 사전 세 가지를 지원합니다.
 
 ![](../.gitbook/assets/89c45f54-9bef-4e9b-b164-0776eb90b991.png)
 
@@ -42,7 +42,7 @@ var threeDoubles = Array(repeating: 0.0, count: 3)
 
 ### 다른 배열을 추가한 배열의 생성
 
-“+” 연산자를 이용해 배열을 합칠 수 있습니다.
+`+` 연산자를 이용해 배열을 합칠 수 있습니다.
 
 ```swift
 var anotherThreeDoubles = Array(repeating: 2.5, count: 3)
@@ -54,7 +54,7 @@ var sixDoubles = threeDoubles + anotherThreeDoubles
 
 ### 리터럴을 이용한 배열의 샌성
 
-\[value 1, value 2, value 3\] 형태를 이용해 배열을 생성할 수 있습니다.
+`[value 1, value 2, value 3]` 형태를 이용해 배열을 생성할 수 있습니다.
 
 ```swift
 var shoppingList: [String] = ["Eggs", "Milk"]
@@ -68,10 +68,14 @@ var shoppingList = ["Eggs", "Milk"]
 
 ### 배열의 접근 및 변환
 
+배열의 원소 개수 확인
+
 ```swift
 print("The shopping list contains \(shoppingList.count) items.")
 // The shopping list contains 2 items.
 ```
+
+배열이 비었는지 확인
 
 ```swift
 if shoppingList.isEmpty {
@@ -82,7 +86,7 @@ if shoppingList.isEmpty {
 // The shopping list is not empty.
 ```
 
-배열의 끝에 아이템 추가하기
+배열에 원소 추가
 
 ```swift
 shoppingList.append("Four")
@@ -96,6 +100,8 @@ shoppingList += [Chocolate Spread", "Cheese", "Butter"]
 // shoppingList.count = 7
 ```
 
+배열의 특정 위치의 원소 접근
+
 ```swift
 var firstItem = shoppingList[0]
 // firstItem : "Eggs"
@@ -106,6 +112,8 @@ shoppingList[4..6] = ["Bananas", "Apples"]
 // 4, 5, 6번째 인덱스 아이템을 Banana, Apples로 변환
 // 즉, 아이템 3개가 2개로 줄었다.
 ```
+
+특정 위치에 원소 추가/삭제/접근
 
 ```swift
 shoppingList.insert("Maple Syrup", at:0)
@@ -126,7 +134,7 @@ let apples = shoppingList.removeLast()
 
 ### 배열의 순회
 
-for-in loop을 이용해 배열을 순회할 수 있습니다.
+`for-in` loop을 이용해 배열을 순회할 수 있습니다.
 
 ```swift
 for item in shoppingList {
@@ -139,7 +147,7 @@ for item in shoppingList {
 // Bananas
 ```
 
-배열의 값과 인덱스가 필요할 때는 enumerated\(\) 메소드를 사용합니다.
+배열의 값과 인덱스가 필요할 때는 `enumerated()` 메소드를 사용합니다.
 
 ```swift
 for (index, value) in shoppingList.enumerated() {
@@ -154,7 +162,7 @@ for (index, value) in shoppingList.enumerated() {
 
 ## 셋\(Set\)
 
-Set 형태로 저장되기 위해서는 반드시 타입이 hashable이어야만 합니다. Swift에서 String, Int, Double, Bool 같은 기본 타입은 기본적으로 hashable입니다. Swift에서 Set 타입은 Set로 선언합니다.
+`Set` 형태로 저장되기 위해서는 반드시 타입이 `hashable`이어야만 합니다. Swift에서 `String`, `Int`, `Double`, `Bool` 같은 기본 타입은 기본적으로 `hashable`입니다. Swift에서 `Set` 타입은 `Set`으로 선언합니다.
 
 ### 빈 Set 생성
 
@@ -261,11 +269,11 @@ oddDigits.symmetricDifference(singleDigitPrimeNumbers).sorted()
 
 ### Set의 맴버십과 동등 비교
 
-Set의 동등비교와 맴버 여부를 확인하기 위해 각각 == 연산자와 isSuperset\(of:\), isStrictSubset\(of:\), isStrictSuperset\(of:\), isDisjoint\(with:\) 메소드를 사용한다.
+Set의 동등비교와 맴버 여부를 확인하기 위해 각각 `==` 연산자와 `isSuperset(of:)`, `isStrictSubset(of:)`, `isStrictSuperset(of:)`, `isDisjoint(with:)` 메소드를 사용합니다.
 
 ![](../.gitbook/assets/56c640e4-4550-4977-87c3-4c242f03d678.png)
 
-isDisjoint\(with:\)는 둘간의 공통값이 없는 경우에 참을 반환 합니다.
+`isDisjoint(with:)`는 둘간의 공통값이 없는 경우에 `true`를 반환합니다.
 
 ```swift
 let houseAnimals: Set = ["🐶", "🐱"]
@@ -282,7 +290,8 @@ farmAnimals.isDisjoint(with: cityAnimals)
 
 ## 사전\(Dictionaries\)
 
-> Swift의 Dictionary타입은 Foundation 클래스의 NSDictionary를 bridge한 타입입니다.
+> _주의_  
+> Swift의 `Dictionary`타입은 `Foundation` 클래스의 `NSDictionary`를 bridge한 타입입니다.
 
 ### 축약형 Dictionary
 
@@ -302,7 +311,7 @@ namesOfIntegers = [:]
 
 ### 리터럴를 이용한 Dictionary의 생성
 
-\[key 1: value 1, key 2: value 2, key 3: value 3\] 형태로 사전 선언 가능
+`[key 1: value 1, key 2: value 2, key 3: value 3]` 형태로 사전을 선언할 수 있습니다.
 
 ```swift
 var airports: [String: String] = = ["YYZ": "Toronto Pearson", "DUB": "Dublin"]

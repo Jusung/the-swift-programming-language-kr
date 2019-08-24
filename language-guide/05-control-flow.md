@@ -1,10 +1,10 @@
 # 제어문 \(Control Flow\)
 
-Swift에서는 while loop, if guard, switch, for-in loop 등 많은 제어문을 제공합니다.
+Swift에서는 `while loop,` `if guard`, `switch`, `for-in` 문 등 많은 제어문을 제공합니다.
 
-## For-In Loops
+## For-In 문 \(For-In Loops\)
 
-배열, 숫자, 문자열을 순서대로 순회\(iterate\)하기 위해 사용합니다.
+`for-in`문는 배열, 숫자, 문자열을 순서대로 순회\(iterate\)하기 위해 사용합니다.
 
 ```swift
 let names = ["Anna", "Alex", "Brian", "Jack"]
@@ -42,7 +42,7 @@ for index in 1...5 {
 // 5 times 5 is 25
 ```
 
-`for-in loop`를 순서대로 제어할 필요가 없다면, 변수자리에 `_`키워드를 사용하면 성능을 높일 수 있습니다.
+`for-in` 문을 순서대로 제어할 필요가 없다면, 변수자리에 `_`키워드를 사용하면 성능을 높일 수 있습니다.
 
 ```swift
 let base = 3
@@ -64,7 +64,7 @@ for tickMark in 0..<minutes {
 }
 ```
 
-`stride(from:to:by:)` 함수와 함께 사용할 수 있습니다. 구간을 5로 설정한 경우.
+`stride(from:to:by:)` 함수와 함께 사용할 수 있습니다. 다음은 구간을 5로 설정한 경우입니다.
 
 ```swift
 let minuteInterval = 5
@@ -83,9 +83,9 @@ for tickMark in stride(from: 3, through: hours, by: hourInterval) {
 }
 ```
 
-## While Loops
+## While 문 \(While Loops\)
 
-Swift에서는 `while`과 `repeat-while` 두 가지 종류의 `while loop`를 지원합니다.
+Swift에서는 `while`과 `repeat-while` 두 가지 종류의 `while` 문을 지원합니다.
 
 ### While
 
@@ -97,7 +97,7 @@ while condition {
 }
 ```
 
-`while loop의 (예)`
+`while` 문의 \(예\)
 
 ```swift
 var square = 0
@@ -116,11 +116,11 @@ while square < finalSquare {
 print("Game over!")
 ```
 
-### Repeat-While
+### Repeat-While 문
 
-> `reapeat-while loop`는 다른 언어의 `do-while loop`와 유사한 `while-loop`입니다.
+> `reapeat-while`문은 다른 언어의 `do-while`문과 유사한 `while`문입니다.
 
-구문\(statements\)을 최소 한번 이상 실행하고 `while-condition`이 false 일 때까지 반복합니다.
+구문\(statements\)을 최소 한번 이상 실행하고 `while` 조건이 거짓일 때까지 반복합니다.
 
 ```swift
 repeat {
@@ -128,7 +128,7 @@ repeat {
 } while condition
 ```
 
-`repeat-while loop의 (예)`
+`repeat-while` 문의 \(예\)
 
 ```swift
 repeat {
@@ -147,9 +147,9 @@ print("Game over!")
 
 Swift에서는 `if`와 `switch`문 두 가지의 조건 구문을 제공합니다.
 
-### If문
+### If 문
 
-\(예1\) If만 사용
+\(예1\) `If`만 사용
 
 ```swift
 var temperatureInFahrenheit = 30
@@ -159,7 +159,7 @@ if temperatureInFahrenheit <= 32 {
 // Prints "It's very cold. Consider wearing a scarf."
 ```
 
-\(예2\) else를 사용
+\(예2\) `else`를 사용
 
 ```swift
 temperatureInFahrenheit = 40
@@ -171,7 +171,7 @@ if temperatureInFahrenheit <= 32 {
 // Prints "It's not that cold. Wear a t-shirt."
 ```
 
-\(예3\) else, else-if를 사용
+\(예3\) `else`, `else-if`를 사용
 
 ```swift
 temperatureInFahrenheit = 90
@@ -185,7 +185,7 @@ if temperatureInFahrenheit <= 32 {
 // Prints "It's really warm. Don't forget to wear sunscreen."
 ```
 
-\(예4\) else-if 만 사용
+\(예4\) `else-if` 만 사용
 
 ```swift
 temperatureInFahrenheit = 72
@@ -198,7 +198,7 @@ if temperatureInFahrenheit <= 32 {
 
 ### Switch
 
-Switch문의 기본 형태
+Switch문의 기본 형태는 다음과 같습니다.
 
 ```swift
 switch some value to consider {
@@ -212,7 +212,7 @@ default:
 }
 ```
 
-문자를 비교해 처리하는 경우
+문자를 비교해 처리하는 경우 아래와 같이 사용할 수 있습니다.
 
 ```swift
 let someCharacter: Character = "z"
@@ -229,10 +229,10 @@ default:
 
 ### 암시적인 진행을 사용하지 않음 \(No Implicit Fallthrough\)
 
-C와 Objective-C의 `switch` 구문과는 달리 Swift의 `switch`구문은 암시적인 진행을 하지 않습니다. C나 Objective-C에서는 `switch` 구문이 기본적으로 모든 case를 순회하여 default를 만날 때까지 진행됩니다. 그래서 그것을 진행하지 않기 위해 break라는 녀석을 명시적으로 적어야 했습니다. Swift에서는 break를 적지 않아도 특정 case가 완료되면 자동으로 `switch`구문을 빠져 나오게 됩니다. 이런 사용법으로 인해 실수로 break를 적지않아 의도하지 않은 case문이 실행되는 것을 방지해줍니다.
+C와 Objective-C의 `switch` 구문과는 달리 Swift의 `switch`구문은 암시적인 진행을 하지 않습니다. C나 Objective-C에서는 `switch` 구문이 기본적으로 모든 `case`를 순회하여 `default`를 만날 때까지 진행됩니다. 그래서 그것을 진행하지 않기 위해 `break`라는 문구를 명시적으로 적어야 했습니다. Swift에서는 `break`를 적지 않아도 특정 `case`가 완료되면 자동으로 `switch`구문을 빠져 나오게 됩니다. 이런 사용법으로 인해 실수로 `break`를 적지않아 의도하지 않은 `case`문이 실행되는 것을 방지해 줍니다.
 
-> NOTE  
-> break가 Swift에서 필수적이지는 않지만 case안에 특정 지점에서 멈추도록 하기 위해 break를 사용할 수 있습니다. 자세한 내용은 Break in a Switch Statement를 참조해주세요.
+> _주의_  
+> `break`가 Swift에서 필수적이지는 않지만 `case`안에 특정 지점에서 멈추도록 하기 위해 `break`를 사용할 수 있습니다. 자세한 내용은 `Break`문을 참조해주세요.
 
 `case` 안 에 최소 하나의 실행 구문이 반드시 있어야 합니다.
 
@@ -261,10 +261,10 @@ default:
 // Prints "The letter A"
 ```
 
-가독성 때문에 혼합해 사용하는 경우를 여러 코드라인에 나눠서 적을 수 있습니다. 더 많은 정보는 Compound Cases에서 볼 수 있습니다.
+가독성 때문에 혼합해 사용하는 경우를 여러 코드라인에 나눠서 적을 수 있습니다. 더 많은 정보는 혼합 케이스 \(Compound Cases\)에서 확인할 수 있습니다.
 
-> Note  
-> 명시적으로 switch-case 문의 특정 지점의 끝까지 실행하고 싶다면 `fallthrough` 키워드를 사용할 수 있습니다. 자세한 정보는 Fallthrough 볼 수 있습니다.
+> _주의_  
+> 명시적으로 switch-case 문의 특정 지점의 끝까지 실행하고 싶다면 `fallthrough` 키워드를 사용할 수 있습니다. 자세한 정보는 Fallthrough에서 확인할 수 있습니다.
 
 ### 인터벌 매칭 \(Interval Matching\)
 
@@ -332,7 +332,7 @@ case let (x, y):
 
 ### Where 문
 
-case에 where 조건을 사용할 수 있습니다.
+`case`에 `where` 조건을 사용할 수 있습니다.
 
 ```swift
 let yetAnotherPoint = (1, -1)
@@ -349,7 +349,7 @@ case let (x, y):
 
 ### 혼합 케이스 \(Compound Cases\)
 
-case에 콤마\(,\)로 구분해 여러 조건을 혼합해 사용할 수 있습니다.
+`case`에 콤마\(,\)로 구분해 여러 조건을 혼합해 사용할 수 있습니다.
 
 ```swift
 let someCharacter: Character = "e"
@@ -380,7 +380,7 @@ default:
 
 ## 제어 전송 구문 \(Control Transfer Statements\)
 
-제어 전송 구문은 코드의 진행을 할지 말지 혹은 실행되는 코드의 흐름을 바꾸기 위해 사용합니다. Swift에서는 다음 다섯 가지의 제어 전송 구문을 제공합니다.
+제어 전송 구문은 코드의 진행을 계속 할지 말지를 결정하거나, 실행되는 코드의 흐름을 바꾸기 위해 사용합니다. Swift에서는 다음 다섯 가지의 제어 전송 구문을 제공합니다.
 
 * continue
 * break
@@ -390,7 +390,7 @@ default:
 
 ### continue 문
 
-continue문은 현재 loop를 중지하고 다음 loop를 수행하도록 합니다.
+`continue`문은 현재 `loop`를 중지하고 다음 `loop`를 수행하도록 합니다.
 
 ```swift
 let puzzleInput = "great minds think alike"
@@ -407,12 +407,12 @@ print(puzzleOutput)
 // Prints "grtmndsthnklk"
 ```
 
-### break
+### Break 문
 
-break문은 전체 제어문의 실행을 즉각 중지 시킵니다. break문은 loop나 switch문에서 사용할 수 있습니다.
+`break`문은 전체 제어문의 실행을 즉각 중지 시킵니다. `break`문은 `loop`나 `switch`문에서 사용할 수 있습니다.
 
 ```swift
-let numberSymbol: Character = "三"  // Chinese symbol for the number 3
+let numberSymbol: Character = "三"  // 중국어로 3을 의미하는 문자입니다.
 var possibleIntegerValue: Int?
 switch numberSymbol {
 case "1", "١", "一", "๑":
@@ -433,9 +433,9 @@ if let integerValue = possibleIntegerValue {
 }
 ```
 
-### fallthrough
+### fallthrough 문
 
-`fallthrough` 키워드는 이후의 case에 대해서도 실행하게 합니다. 앞에서 언급했던 것 처럼 Swift에서는 한번 특정 case를 타면 바로 그 switch 문은 종료됩니다. 마치 case 안에 break를 자동으로 넣은 것과 같은 기능을 하는 것이죠. 하지만 이 `fallthrough` 를 사용하면 이 자동으로 break가 사용되는 것을 막는 효과를 가져옵니다.
+`fallthrough` 키워드는 이후의 `case`에 대해서도 실행하게 합니다. 앞에서 언급했던 것 처럼 Swift에서는 한번 특정 `case`를 타면 바로 그 switch 문은 종료됩니다. 마치 `case` 안에 `break`를 자동으로 넣은 것과 같은 기능을 하는 것이죠. 하지만 이 `fallthrough` 를 사용하면 이 자동으로 `break`가 사용되는 것을 막는 효과를 가져옵니다.
 
 ```swift
 let integerToDescribe = 5
@@ -451,7 +451,8 @@ print(description)
 // Prints "The number 5 is a prime number, and also an integer."
 ```
 
-> NOTE fallthrough 는 case 조건을 확인하지 않고 그냥 다음 case를 실행하게 만듭니다.
+> _주의_   
+> fallthrough 는 case 조건을 확인하지 않고 그냥 다음 case를 실행하게 만듭니다.
 
 ### 레이블 구문 \(Labeled Statements\)
 
