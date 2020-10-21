@@ -327,5 +327,5 @@ print(AudioChannel.maxInputLevelForAllChannels)
 // Prints "10"
 ```
 
-`threshold`가 적용돼서 11을 입력했지만 10으로 설정된 것을 확인할 수 있습니다.
+`thresholdLevel`이 적용돼서 11을 입력했지만 10으로 설정된 것을 확인할 수 있습니다.
 
