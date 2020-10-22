@@ -162,8 +162,26 @@ for (index, value) in shoppingList.enumerated() {
 
 ## 셋\(Set\)
 
-`Set` 형태로 저장되기 위해서는 반드시 타입이 `hashable`이어야만 합니다. Swift에서 `String`, `Int`, `Double`, `Bool` 같은 기본 타입은 기본적으로 `hashable`입니다. Swift에서 `Set` 타입은 `Set`으로 선언합니다.
+Set은 정의된 순서없이 컬렉션에 동일한 유형의 고유한 값을 저장합니다. 항목 순서가 중요하지 않거나 항목이 한 번만 표시되도록 해야하는 경우 Array 대신 Set을 사용할 수 있습니다.
 
+> _주의_  
+> Swift의 Set은 Foundation의 NSSet 클래스에 연결됩니다.
+>
+> Foundation 및 Cocoa에서 Set을 사용하는 방법에 대한 자세한 내용은 [Set와 NSSet간 연결](https://developer.apple.com/documentation/swift/set#2845530)을 참조하십시오.
+
+### Set Type에 대한 Hash Value\(Hash Values for Set Types\)
+
+Set 타입으로 저장되기 위해서는 해시가 가능해야 합니다. 즉, 타입 자체에 대한 해시 값을 계산하는 방법을 제공해야합니다. 해시 값은 동일하게 비교되는 모든 객체에 대해 동일한 `Int`값으로, `a == b` 인 경우 `a`의 해시 값은 `b`의 해시 값과 같습니다.
+
+Swift의 모든 기본 타입(예: `String`, `Int`, `Double`, `Bool`)은 기본적으로 해시가 가능하며, Set Value 타입 또는 Dictionary Key 타입으로 사용할 수 있습니다. Enumerations도 기본적으로 해시(hashable) 할 수 있습니다([Enumerations](https://docs.swift.org/swift-book/LanguageGuide/Enumerations.html)).
+
+> _주의_   
+> 사용자 정의 타입으로 Set, Dictionary의 Key를 위해서는 Swift 표준 라이브러리의 `Hashable` 프로토콜에 따라 사용할 수 있습니다. `hash(into:)` 메소드 구현을 위한 자료는 여기를 [Hashable](https://developer.apple.com/documentation/swift/hashable) 참조, 프로토콜에 대한 자료는 여기를 [Protocols](https://docs.swift.org/swift-book/LanguageGuide/Protocols.html) 참조 하십시오.
+
+### Set Type 문법\(Set Type Syntax\)
+
+Swift의 Set 타입은 `Set<Element>`로 작성되며, 여기서 `Element`는 Set으로 저장할 수있는 타입입니다. Array와 달리 Set에는 동등한 줄임 표현이 없습니다.
+    
 ### 빈 Set 생성
 
 ```swift
