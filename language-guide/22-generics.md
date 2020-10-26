@@ -218,7 +218,7 @@ if let foundIndex = findIndex(ofString: "llama", in: strings) {
 // Prints "The index of llama is 2"
 ```
 
-위 함수를 네릭으로 구현하면 다음과 같습니다.
+위 함수를 제네릭으로 구현하면 다음과 같습니다.
 
 ```swift
 func findIndex<T>(of valueToFind: T, in array:[T]) -> Int? {
