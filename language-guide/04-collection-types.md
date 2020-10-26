@@ -52,7 +52,7 @@ var sixDoubles = threeDoubles + anotherThreeDoubles
 // sixDoubles : [0.0, 0.0, 0.0, 2.5, 2.5, 2.5]
 ```
 
-### 리터럴을 이용한 배열의 샌성
+### 리터럴을 이용한 배열의 생성
 
 `[value 1, value 2, value 3]` 형태를 이용해 배열을 생성할 수 있습니다.
 
@@ -96,7 +96,7 @@ shoppingList.append("Four")
 ```swift
 shoppingList += ["Baking Powder"]
 // shoppingList.count = 4
-shoppingList += [Chocolate Spread", "Cheese", "Butter"]
+shoppingList += ["Chocolate Spread", "Cheese", "Butter"]
 // shoppingList.count = 7
 ```
 
@@ -160,7 +160,7 @@ for (index, value) in shoppingList.enumerated() {
 // Item 5: Bananas
 ```
 
-## 셋\(Set\)
+## 셋\(Sets\)
 
 `Set` 형태로 저장되기 위해서는 반드시 타입이 `hashable`이어야만 합니다. Swift에서 `String`, `Int`, `Double`, `Bool` 같은 기본 타입은 기본적으로 `hashable`입니다. Swift에서 `Set` 타입은 `Set`으로 선언합니다.
 
