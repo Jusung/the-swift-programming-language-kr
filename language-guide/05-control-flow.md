@@ -488,7 +488,7 @@ print("Game over!")
 
 ### 이른 탈출 \(Early Exit\)
 
-`guard`문을 이용해 특정 조건을 만족하지 않으면 이 후 코드를 실행하지 않도록 방어코드를 작성할 수 있습니다.
+`if`문과 같은 `guard`문은 구문의 `Boolean`값에 따라 실행합니다. `guard`문을 사용하여 다음에 코드를 실행하려면 조건이 참이어야합니다. `if`문과 달리 `guard`문에는 항상 `else`가 있습니다. 조건이 참이 아니면 `else` 내부의 코드가 실행됩니다.
 
 ```swift
 func greet(person: [String: String]) {
@@ -513,6 +513,12 @@ greet(person: ["name": "Jane", "location": "Cupertino"])
 // Prints "Hello Jane!"
 // Prints "I hope the weather is nice in Cupertino."
 ```
+
+`guard`문의 조건이 충족되면 `guard`문의 닫는 중괄호(`}`) 다음의 코드 실행이 계속됩니다. 조건의 일부로 선택적 바인딩을 사용하여 값이 할당 된 모든 변수 또는 상수는 `guard`문이 나타나는 나머지 코드 블록에서 사용할 수 있습니다.
+
+해당 조건이 충족되지 않으면 `else`분기 내의 코드가 실행됩니다. 해당 분기는 `guard`문이 나타나는 코드 블록을 종료하기 위해 제어를 전송해야 합니다. `return, break, continue` 또는 `throw`와 같은 제어 전송 문을 사용하여 이를 수행하거나 `fatalError (_ : file : line :)`과 같이 반환되지 않는 함수 또는 메서드를 호출 할 수 있습니다.
+
+`guard`문을 사용하면 `if`문으로 동일한 검사를 수행하는 것과 비교하여 코드의 가독성이 향상됩니다. 이를 통해 일반적으로 실행되는 코드를 `else` 블록으로 래핑하지 않고 작성할 수 있으며 잘못된 요구 사항을 처리하는 코드를 요구 사항 옆에 유지할 수 있습니다.
 
 ## 이용가능한 API 버전 확인 \(Checking API Availability\)
 
