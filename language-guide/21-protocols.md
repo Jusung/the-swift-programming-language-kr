@@ -178,7 +178,7 @@ class SomeClass: SomeProtocol {
 ```
 
 > NOTE  
-> 클래스 타입에서 final로 선언된 것에는 required를 표시하지 않도 됩니다. final로 선언되면 서브클래싱 되지 않기 때문입니다.
+> 클래스 타입에서 final로 선언된 것에는 required를 표시하지 않아도 됩니다. final로 선언되면 서브클래싱 되지 않기 때문입니다.
 
 특정 프로토콜의 필수 이니셜라이저를 구현하고, 수퍼클래스의 이니셜라이저를 서브클래싱하는 경우 이니셜라이저 앞에 required 키워드와 override 키워드를 적어줍니다.
 
