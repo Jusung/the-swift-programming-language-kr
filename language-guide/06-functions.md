@@ -199,7 +199,7 @@ someFunction(parameterWithoutDefault: 4) // parameterWithDefault는 12
 
 ### 집합 파라미터 \(Variadic Parameters\)
 
-인자 값으로 특정 형\(type\)의 집합 값을 사용할 수 있습니다.
+파라미터 값으로 특정 형\(type\)의 집합 값을 사용할 수 있습니다.
 
 ```swift
 func arithmeticMean(_ numbers: Double...) -> Double {
