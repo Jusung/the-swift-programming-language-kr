@@ -63,7 +63,7 @@ It also ends with a line break.
 문자열 리터럴은 다음과 같은 특수 문자를 포함할 수 있습니다.
 
 * `\0`, `\`, `\t`, `\n`, `\r`, `\”`, `\’`
-* `\u{n}`, n은 1-8자리 십진수 형태로 구성된 유니코드
+* `\u{n}`, n은 1-8자리 십육진법 형태로 구성된 유니코드
 
   ```swift
   let wiseWords = "\"Imagination is more important than knowledge\" - Einstein"
