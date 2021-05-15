@@ -230,7 +230,7 @@ colorNameToUse = userDefinedColorName ?? defaultColorName
 
 ### 닫힌 범위 연산자\(Closed Range Operator\)
 
-`(a..b)`의 형태로 범위의 시작과 끝이 있는 연산자 입니다. for-in loop에 자주 사용됩니다.
+`(a...b)`의 형태로 범위의 시작과 끝이 있는 연산자 입니다. for-in loop에 자주 사용됩니다.
 
 ```swift
 for index in 1...5 {
@@ -372,4 +372,3 @@ if (enteredDoorCode && passedRetinaScan) || hasDoorKey || knowsOverridePassword 
 ```
 
 이렇게 괄호를 사용하면 가독성이 높아져 코드의 의도를 더 명확하게 하는데 도움이 됩니다.
-
