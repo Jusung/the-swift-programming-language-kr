@@ -215,7 +215,7 @@ Swift의 네이티브 문자열 타입은 유니코드 스칼라 값으로 만�
 ```swift
   let unusualMenagerie = "Koala 🐨, Snail 🐌, Penguin 🐧, Dromedary 🐪"
   print("unusualMenagerie has \(unusualMenagerie.count) characters")
-  // "unusualMenagerie의 문자는 40개"
+  // Prints "unusualMenagerie has 40 characters"
 ```
 
 **문자열의 접근과 수정**
