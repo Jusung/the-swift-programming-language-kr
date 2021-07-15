@@ -24,11 +24,13 @@ till you come to the end; then stop."
 """
 ```
 
-여러줄 문자열을 사용할 때는 첫 시작의 `"""` 다음 줄부터 마지막 `"""`의 직전까지를 문자열로 봅니다. 그래서 아래 두 줄의 표현으로 이루어진 `singleLineString`과 `multilineString`은 같은 값을 갖게 됩니다.
+여러줄 문자열을 사용할 때는 첫 시작의 `"""` 다음 줄부터 마지막 `"""`의 직전까지를 문자열로 봅니다. 그래서 아래 `singleLineString`과 `multilineString`은 같은 값을 갖게 됩니다.
 
 ```swift
 let singleLineString = "These are the same."
-let multilineString = """These are the same."""
+let multilineString = """
+These are the same.
+"""
 ```
 
 여러줄 문자열을 사용하며 줄바꿈을 하고 싶으면 백슬래쉬\(`\`\)를 사용합니다.
@@ -63,7 +65,7 @@ It also ends with a line break.
 문자열 리터럴은 다음과 같은 특수 문자를 포함할 수 있습니다.
 
 * `\0`, `\`, `\t`, `\n`, `\r`, `\”`, `\’`
-* `\u{n}`, n은 1-8자리 십진수 형태로 구성된 유니코드
+* `\u{n}`, n은 1-8자리 16진수 형태로 구성된 유니코드
 
   ```swift
   let wiseWords = "\"Imagination is more important than knowledge\" - Einstein"
