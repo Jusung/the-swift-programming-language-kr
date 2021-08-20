@@ -108,7 +108,7 @@ var firstItem = shoppingList[0]
 ```
 
 ```swift
-shoppingList[4..6] = ["Bananas", "Apples"]
+shoppingList[4...6] = ["Bananas", "Apples"]
 // 4, 5, 6번째 인덱스 아이템을 Banana, Apples로 변환
 // 즉, 아이템 3개가 2개로 줄었다.
 ```
