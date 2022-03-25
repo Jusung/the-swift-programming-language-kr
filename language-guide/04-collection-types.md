@@ -314,7 +314,7 @@ namesOfIntegers = [:]
 `[key 1: value 1, key 2: value 2, key 3: value 3]` 형태로 사전을 선언할 수 있습니다.
 
 ```swift
-var airports: [String: String] = = ["YYZ": "Toronto Pearson", "DUB": "Dublin"]
+var airports: [String: String] = ["YYZ": "Toronto Pearson", "DUB": "Dublin"]
 ```
 
 ### Dictionary의 접근과 변경
